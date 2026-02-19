@@ -5,6 +5,7 @@ plugins {
     id("org.javamodularity.moduleplugin") version "1.8.15"
     id("org.openjfx.javafxplugin") version "0.0.13"
     id("org.beryx.jlink") version "2.25.0"
+    kotlin("plugin.jpa") version "2.1.0"
 }
 
 group = "ru.lizyakin"
@@ -35,6 +36,15 @@ javafx {
 }
 
 dependencies {
+    // Hibernate 6
+    implementation("org.hibernate.orm:hibernate-core:6.2.7.Final")
+    // Драйвер PostgreSQL
+    implementation("org.postgresql:postgresql:42.7.2")
+    // Kotlin Reflection (обязательно!)
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+
+    // Тесты
+
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }

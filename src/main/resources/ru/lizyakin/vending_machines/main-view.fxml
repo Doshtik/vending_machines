@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.Region?>
-<HBox stylesheets="@style.css" alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+<HBox stylesheets="@styles/main.css" alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="ru.lizyakin.vending_machines.controllers.MainController">
     <!-- Сайдбар -->
     <VBox fx:id="sidebar" prefWidth="250.0" styleClass="sidebar">

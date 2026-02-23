@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.SubScene?>
 <HBox stylesheets="@styles/main.css" alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="ru.lizyakin.vending_machines.controllers.LayoutController">
+      fx:controller="ru.lizyakin.vending_machines.controllers.LayoutController" prefWidth="1200" prefHeight="600">
     <!-- Сайдбар -->
     <VBox fx:id="sidebar" prefWidth="250.0" styleClass="sidebar">
         <VBox fx:id="sidebarHeader" alignment="CENTER_LEFT" styleClass="sidebar-header">

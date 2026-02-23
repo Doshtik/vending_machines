@@ -39,7 +39,7 @@ class LayoutController {
 
     @FXML
    fun navToMonitorVM() {
-        nav("main-monitor-vm-view.fxml", "Монитор ТА")
+        nav("main-monitor-vm-view.fxml", "Главная / Монитор ТА")
     }
 
     @FXML
@@ -64,7 +64,7 @@ class LayoutController {
 
     @FXML
     fun navToAdminVM() {
-
+        nav("admin-vm-view.fxml", "Администрирование / Торговые автоматы")
     }
 
     @FXML

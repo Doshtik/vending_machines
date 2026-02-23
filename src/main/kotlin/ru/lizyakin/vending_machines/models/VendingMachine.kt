@@ -1,12 +1,14 @@
 package ru.lizyakin.vending_machines.models
 
 import jakarta.persistence.Column
+import jakarta.persistence.Entity
 import jakarta.persistence.FetchType
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
+import jakarta.persistence.Table
 import jakarta.persistence.Transient
 import javafx.beans.property.ReadOnlyObjectWrapper
 import javafx.beans.property.SimpleStringProperty
@@ -14,13 +16,16 @@ import javafx.beans.property.StringProperty
 import javafx.beans.value.ObservableValue
 import java.util.Date
 
+@Entity
+@Table(name = "vending_machines")
 class VendingMachine (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Int,
+    var id: Int?,
 
     @Column(name = "inventory_id")
-    var inventoryId: Int,
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var inventoryId: Int?,
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_status")
@@ -67,16 +72,19 @@ class VendingMachine (
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_modem")
-    var modem: Modem
+    var modem: Modem,
+
+    @Column(name = "address")
+    var address: String
 ) {
     // Эти методы JavaFX будет использовать для связки с таблицей.
     // Аннотация @Transient говорит Hibernate игнорировать эти функции.
 
     @Transient
-    fun idProperty(): ObservableValue<Number> = ReadOnlyObjectWrapper(id)
+    fun idProperty(): ObservableValue<Int> = ReadOnlyObjectWrapper(id)
 
     @Transient
-    fun inventoryIdProperty(): ObservableValue<Number> = ReadOnlyObjectWrapper(inventoryId)
+    fun inventoryIdProperty(): ObservableValue<Int> = ReadOnlyObjectWrapper(inventoryId)
 
     @Transient
     fun statusProperty(): StringProperty = SimpleStringProperty(status?.statusName)
@@ -100,7 +108,7 @@ class VendingMachine (
     fun lastTimeCheckedAtProperty(): ObservableValue<Date> = ReadOnlyObjectWrapper(lastTimeCheckedAt)
 
     @Transient
-    fun resourceOfMachineIntervalProperty(): ObservableValue<Number> = ReadOnlyObjectWrapper(resourceOfMachine)
+    fun resourceOfMachineIntervalProperty(): ObservableValue<Short> = ReadOnlyObjectWrapper(resourceOfMachine)
 
     @Transient
     fun intercheckingIntervalProperty(): ObservableValue<Number> = ReadOnlyObjectWrapper(intercheckingInterval)
@@ -109,7 +117,7 @@ class VendingMachine (
     fun nextCheckAtProperty(): ObservableValue<Date> = ReadOnlyObjectWrapper(nextCheckAt)
 
     @Transient
-    fun checkTimeProperty(): ObservableValue<Number> = ReadOnlyObjectWrapper(checkTime)
+    fun checkTimeProperty(): ObservableValue<Short> = ReadOnlyObjectWrapper(checkTime)
 
     @Transient
     fun inventoryAtProperty(): ObservableValue<Date> = ReadOnlyObjectWrapper(inventoryAt)
@@ -119,4 +127,7 @@ class VendingMachine (
 
     @Transient
     fun modemProperty(): StringProperty = SimpleStringProperty(modem?.modemNumber)
+
+    @Transient
+    fun addressProperty(): StringProperty = SimpleStringProperty(address)
 }

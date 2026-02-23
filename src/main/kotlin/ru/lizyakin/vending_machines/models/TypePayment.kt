@@ -6,6 +6,8 @@ import javafx.beans.property.SimpleStringProperty
 import javafx.beans.property.StringProperty
 import javafx.beans.value.ObservableValue
 
+@Entity
+@Table(name = "types_payment")
 class TypePayment (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

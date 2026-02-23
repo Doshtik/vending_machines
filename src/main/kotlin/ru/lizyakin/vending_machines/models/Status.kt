@@ -1,0 +1,29 @@
+package ru.lizyakin.vending_machines.models
+
+import jakarta.persistence.Column
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
+import jakarta.persistence.Transient
+import javafx.beans.property.ReadOnlyObjectWrapper
+import javafx.beans.property.SimpleStringProperty
+import javafx.beans.property.StringProperty
+import javafx.beans.value.ObservableValue
+
+class Status (
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Int = 0,
+
+    @Column(name = "status_name")
+    var statusName: String = ""
+) {
+    // Эти методы JavaFX будет использовать для связки с таблицей.
+    // Аннотация @Transient говорит Hibernate игнорировать эти функции.
+
+    @Transient
+    fun idProperty(): ObservableValue<Number> = ReadOnlyObjectWrapper(id)
+
+    @Transient
+    fun statusNameProperty(): StringProperty = SimpleStringProperty(statusName)
+}

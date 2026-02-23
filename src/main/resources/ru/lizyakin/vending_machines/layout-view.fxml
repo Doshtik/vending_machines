@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.Region?>
+<HBox stylesheets="@styles/main.css" alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ru.lizyakin.vending_machines.controllers.LayoutController">
+    <!-- Сайдбар -->
+    <VBox fx:id="sidebar" prefWidth="250.0" styleClass="sidebar">
+        <VBox fx:id="sidebarHeader" alignment="CENTER_LEFT" styleClass="sidebar-header">
+            <Label fx:id="navHeader" text="НАВИГАЦИЯ" styleClass="sidebar-title" />
+        </VBox>
+
+        <VBox fx:id="sidebarBody" spacing="5.0" VBox.vgrow="ALWAYS" styleClass="sidebar-nav">
+            <Button fx:id="buttonMain" text="Главная" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button fx:id="button_monitorVm" text="Монитор ТА" maxWidth="Infinity" styleClass="nav-button"/>
+            <MenuButton fx:id="menubuttonReports" text="Детальные отчеты" maxWidth="Infinity" styleClass="nav-menu">
+                <items>
+                    <MenuItem fx:id="reportVM" text="Отчет по ТА"/>
+                    <MenuItem fx:id="reportUsers" text="Отчет по пользователям"/>
+                </items>
+            </MenuButton>
+            <MenuButton fx:id="menubuttonAccounting" text="Учёт ТМЦ" maxWidth="Infinity" styleClass="nav-menu">
+                <items>
+                    <MenuItem fx:id="accountingVM" text="Учет ТА"/>
+                    <MenuItem fx:id="accountingUsers" text="Учёт пользователей"/>
+                </items>
+            </MenuButton>
+            <MenuButton fx:id="menubuttonAdmin" text="Администрирование" maxWidth="Infinity" styleClass="nav-menu">
+                <items>
+                    <MenuItem fx:id="adminVM" text="Торговые автоматы"/>
+                    <MenuItem fx:id="adminCompanies" text="Компании"/>
+                    <MenuItem fx:id="adminUsers" text="Пользователи"/>
+                    <MenuItem fx:id="adminModems" text="Модемы"/>
+                    <MenuItem fx:id="adminAdditionally" text="Дополнительные"/>
+                </items>
+            </MenuButton>
+        </VBox>
+    </VBox>
+
+    <!-- Основная область -->
+    <VBox fx:id="mainContent" HBox.hgrow="ALWAYS" styleClass="main-content">
+        <HBox fx:id="mainHeader" alignment="CENTER_LEFT" styleClass="content-header">
+            <Label fx:id="companyName" text="ООО Торговые Автоматы" styleClass="company-label" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="navSectionName" text="Главное" styleClass="section-title" />
+        </HBox>
+
+        <StackPane fx:id="mainBody" VBox.vgrow="ALWAYS" styleClass="body-container">
+            <!-- Сюда будут подгружаться контентные части -->
+        </StackPane>
+    </VBox>
+</HBox>

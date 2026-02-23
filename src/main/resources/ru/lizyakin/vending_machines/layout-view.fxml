@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.SubScene?>
 <HBox stylesheets="@styles/main.css" alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="ru.lizyakin.vending_machines.controllers.LayoutController">
     <!-- Сайдбар -->
@@ -21,27 +22,27 @@
         </VBox>
 
         <VBox fx:id="sidebarBody" spacing="5.0" VBox.vgrow="ALWAYS" styleClass="sidebar-nav">
-            <Button fx:id="buttonMain" text="Главная" maxWidth="Infinity" styleClass="nav-button"/>
-            <Button fx:id="button_monitorVm" text="Монитор ТА" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button fx:id="buttonMain" onAction="#navToMain" text="Главная" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button fx:id="button_monitorVm" onAction="#navToMonitorVM" text="Монитор ТА" maxWidth="Infinity" styleClass="nav-button"/>
             <MenuButton fx:id="menubuttonReports" text="Детальные отчеты" maxWidth="Infinity" styleClass="nav-menu">
                 <items>
-                    <MenuItem fx:id="reportVM" text="Отчет по ТА"/>
-                    <MenuItem fx:id="reportUsers" text="Отчет по пользователям"/>
+                    <MenuItem fx:id="reportVM" onAction="#navToReportVM" text="Отчет по ТА"/>
+                    <MenuItem fx:id="reportUsers" onAction="#navToReportUsers" text="Отчет по пользователям"/>
                 </items>
             </MenuButton>
             <MenuButton fx:id="menubuttonAccounting" text="Учёт ТМЦ" maxWidth="Infinity" styleClass="nav-menu">
                 <items>
-                    <MenuItem fx:id="accountingVM" text="Учет ТА"/>
-                    <MenuItem fx:id="accountingUsers" text="Учёт пользователей"/>
+                    <MenuItem fx:id="accountingVM" onAction="#navToAccountingVM" text="Учет ТА"/>
+                    <MenuItem fx:id="accountingUsers" onAction="#navToAccountingUsers" text="Учёт пользователей"/>
                 </items>
             </MenuButton>
             <MenuButton fx:id="menubuttonAdmin" text="Администрирование" maxWidth="Infinity" styleClass="nav-menu">
                 <items>
-                    <MenuItem fx:id="adminVM" text="Торговые автоматы"/>
-                    <MenuItem fx:id="adminCompanies" text="Компании"/>
-                    <MenuItem fx:id="adminUsers" text="Пользователи"/>
-                    <MenuItem fx:id="adminModems" text="Модемы"/>
-                    <MenuItem fx:id="adminAdditionally" text="Дополнительные"/>
+                    <MenuItem fx:id="adminVM" onAction="#navToAdminVM" text="Торговые автоматы"/>
+                    <MenuItem fx:id="adminCompanies" onAction="#navToAdminCompanies" text="Компании"/>
+                    <MenuItem fx:id="adminUsers" onAction="#navToAdminUsers" text="Пользователи"/>
+                    <MenuItem fx:id="adminModems" onAction="#navToAdminModems" text="Модемы"/>
+                    <MenuItem fx:id="adminAdditionally" onAction="#navToAdminAdditionally" text="Дополнительные"/>
                 </items>
             </MenuButton>
         </VBox>
@@ -52,7 +53,7 @@
         <HBox fx:id="mainHeader" alignment="CENTER_LEFT" styleClass="content-header">
             <Label fx:id="companyName" text="ООО Торговые Автоматы" styleClass="company-label" />
             <Region HBox.hgrow="ALWAYS" />
-            <Label fx:id="navSectionName" text="Главное" styleClass="section-title" />
+            <Label fx:id="navSectionName" styleClass="section-title" />
         </HBox>
 
         <StackPane fx:id="mainBody" VBox.vgrow="ALWAYS" styleClass="body-container">

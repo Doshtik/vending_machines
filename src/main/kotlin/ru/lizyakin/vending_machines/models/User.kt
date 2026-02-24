@@ -20,7 +20,7 @@ import javafx.beans.value.ObservableValue
 class User (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Int,
+    var id: Int?,
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_role")
@@ -42,8 +42,20 @@ class User (
     // Аннотация @Transient говорит Hibernate игнорировать эти функции.
 
     @Transient
-    fun idProperty(): ObservableValue<Number> = ReadOnlyObjectWrapper(id ?: 0)
+    fun idProperty(): ObservableValue<Int> = ReadOnlyObjectWrapper(id ?: 0)
 
     @Transient
     fun roleNameProperty(): StringProperty = SimpleStringProperty(role?.roleName ?: "—")
+
+    @Transient
+    fun lastnameProperty(): StringProperty = SimpleStringProperty(lastname)
+
+    @Transient
+    fun firstnameProperty(): StringProperty = SimpleStringProperty(firstname)
+
+    @Transient
+    fun surnameProperty(): StringProperty = SimpleStringProperty(surname)
+
+    @Transient
+    fun emailProperty(): StringProperty = SimpleStringProperty(email)
 }

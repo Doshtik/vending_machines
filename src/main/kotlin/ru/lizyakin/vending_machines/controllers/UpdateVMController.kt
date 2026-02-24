@@ -130,7 +130,7 @@ class UpdateVMController {
 
         val task = object : Task<Unit>() {
             override fun call() {
-                VMRepository.save(vm)
+                VMRepository.update(vm)
             }
         }
 

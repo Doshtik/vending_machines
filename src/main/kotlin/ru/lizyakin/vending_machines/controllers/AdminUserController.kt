@@ -12,34 +12,36 @@ import javafx.scene.control.ButtonType
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import javafx.stage.Stage
+import ru.lizyakin.vending_machines.models.User
 import ru.lizyakin.vending_machines.models.VendingMachine
+import ru.lizyakin.vending_machines.repositories.UserRepository
 import ru.lizyakin.vending_machines.repositories.VMRepository
 import java.util.Date
 
-class AdminVMController {
-    @FXML private lateinit var tableView: TableView<VendingMachine>
-    @FXML private lateinit var idColumn: TableColumn<VendingMachine, Int>
-    @FXML private lateinit var modelNameColumn: TableColumn<VendingMachine, String>
-    @FXML private lateinit var companyColumn: TableColumn<VendingMachine, String>
-    @FXML private lateinit var modemColumn: TableColumn<VendingMachine, String>
-    @FXML private lateinit var addressColumn: TableColumn<VendingMachine, String>
-    @FXML private lateinit var worktimeColumn: TableColumn<VendingMachine, Date>
+class AdminUserController {
+    @FXML private lateinit var tableView: TableView<User>
+    @FXML private lateinit var idColumn: TableColumn<User, Int>
+    @FXML private lateinit var roleColumn: TableColumn<User, String>
+    @FXML private lateinit var lastnameColumn: TableColumn<User, String>
+    @FXML private lateinit var firstnameColumn: TableColumn<User, String>
+    @FXML private lateinit var surnameColumn: TableColumn<User, String>
+    @FXML private lateinit var emailColumn: TableColumn<User, String>
 
-    private lateinit var selectedVendingMachine: VendingMachine
+    private lateinit var selectedUser: User
 
     @FXML
     fun initialize() {
         idColumn.setCellValueFactory { it.value.idProperty() }
-        modelNameColumn.setCellValueFactory { it.value.modelNameProperty() }
-        companyColumn.setCellValueFactory { it.value.manufacturerProperty() }
-        modemColumn.setCellValueFactory { it.value.modemProperty() }
-        addressColumn.setCellValueFactory { it.value.addressProperty() }
-        worktimeColumn.setCellValueFactory { it.value.lastTimeCheckedAtProperty() }
+        roleColumn.setCellValueFactory { it.value.roleNameProperty() }
+        lastnameColumn.setCellValueFactory { it.value.lastnameProperty() }
+        firstnameColumn.setCellValueFactory { it.value.firstnameProperty() }
+        surnameColumn.setCellValueFactory { it.value.surnameProperty() }
+        emailColumn.setCellValueFactory { it.value.emailProperty() }
 
         tableView.getSelectionModel().selectedItemProperty()
-            .addListener(ChangeListener { obs: ObservableValue<out VendingMachine?>?, oldSelection: VendingMachine?, newSelection: VendingMachine? ->
+            .addListener(ChangeListener { obs: ObservableValue<out User?>?, oldSelection: User?, newSelection: User? ->
                 if (newSelection != null) {
-                    selectedVendingMachine = newSelection
+                    selectedUser = newSelection
                 }
             })
 
@@ -47,9 +49,9 @@ class AdminVMController {
     }
 
     private fun loadData() {
-        val task = object : Task<List<VendingMachine>>() {
-            override fun call(): List<VendingMachine> {
-                return VMRepository.findAll()
+        val task = object : Task<List<User>>() {
+            override fun call(): List<User> {
+                return UserRepository.findAll()
             }
         }
 
@@ -66,16 +68,16 @@ class AdminVMController {
     }
 
     @FXML
-    public fun onCreateVendingMachine() {
+    public fun onCreateUser() {
         try {
             // Укажи путь к FXML от корня resources
-            val fxmlLocation = javaClass.getResource("/ru/lizyakin/vending_machines/create-vm-view.fxml")
+            val fxmlLocation = javaClass.getResource("/ru/lizyakin/vending_machines/create-user-view.fxml")
             val loader = FXMLLoader(fxmlLocation)
             val root = loader.load<Parent>()
 
             val stage = Stage()
             stage.scene = Scene(root)
-            stage.title = "Добавление торгового автомата"
+            stage.title = "Добавление пользователя"
             stage.showAndWait()
         } catch (e: Exception) {
             e.printStackTrace()
@@ -85,32 +87,32 @@ class AdminVMController {
     }
 
     @FXML
-    public fun onUpdateVendingMachine() {
-        if (selectedVendingMachine == null) {
-            val alert: Alert = Alert(Alert.AlertType.WARNING, "Торговый автомат не выбран")
+    public fun onUpdateUser() {
+        if (selectedUser == null) {
+            val alert: Alert = Alert(Alert.AlertType.WARNING, "Пользователь не выбран")
             alert.showAndWait()
             return
         }
 
-        val loader = FXMLLoader(javaClass.getResource("/ru/lizyakin/vending_machines/update-vm-view.fxml"))
+        val loader = FXMLLoader(javaClass.getResource("/ru/lizyakin/vending_machines/update-user-view.fxml"))
         val root = loader.load<Parent>()
 
         // Получаем контроллер и передаем в него пользователя
-        val controller = loader.getController<UpdateVMController>()
-        controller.setVendingMachine(selectedVendingMachine)
+        val controller = loader.getController<UpdateUserController>()
+        controller.setUser(selectedUser)
 
         val stage = Stage()
         stage.scene = Scene(root)
-        stage.title = "Редактирование " + selectedVendingMachine.modelName
+        stage.title = "Редактирование " + selectedUser.lastname + " " + selectedUser.firstname
         stage.showAndWait()
 
         loadData()
     }
 
     @FXML
-    fun onDeleteVendingMachine() {
-        if (selectedVendingMachine == null) {
-            val alert: Alert = Alert(Alert.AlertType.WARNING, "Торговый автомат не выбран")
+    fun onDeleteUser() {
+        if (selectedUser == null) {
+            val alert: Alert = Alert(Alert.AlertType.WARNING, "Пользователь не выбран")
             alert.showAndWait()
             return
         }
@@ -124,12 +126,12 @@ class AdminVMController {
 
         val deleteTask = object : Task<Unit>() {
             override fun call() {
-                VMRepository.delete(selectedVendingMachine)
+                UserRepository.delete(selectedUser)
             }
         }
 
         deleteTask.setOnSucceeded {
-            tableView.items.remove(selectedVendingMachine)
+            tableView.items.remove(selectedUser)
         }
 
         deleteTask.setOnFailed {

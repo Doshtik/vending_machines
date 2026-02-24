@@ -25,6 +25,7 @@ import ru.lizyakin.vending_machines.repositories.ModemRepository
 import ru.lizyakin.vending_machines.repositories.StatusRepository
 import ru.lizyakin.vending_machines.repositories.UserRepository
 import ru.lizyakin.vending_machines.repositories.VMRepository
+import java.time.ZoneId
 import java.util.Date
 import java.util.Random
 
@@ -88,19 +89,19 @@ class CreateVMController {
         var rnd = Random()
         val vm = VendingMachine(
             id = null,
-            inventoryId = null,
+            inventoryId = rnd.nextInt() * 10000,
             status = statusComboBox.value,
             manufacturer = manufacturerComboBox.value,
             country = countryComboBox.value,
             modelName = modelNameTextField.text,
-            createdAt = createdAtDatePicker.value as Date,
-            commissionedAt = commissionedAtDatePicker.value as Date,
-            lastTimeCheckedAt = lastTimeCheckedAtDatePicker as Date,
+            createdAt = Date.from(createdAtDatePicker.value.atStartOfDay(ZoneId.systemDefault()).toInstant()),
+            commissionedAt = Date.from(createdAtDatePicker.value.atStartOfDay(ZoneId.systemDefault()).toInstant()),
+            lastTimeCheckedAt = Date.from(lastTimeCheckedAtDatePicker.value.atStartOfDay(ZoneId.systemDefault()).toInstant()),
             intercheckingInterval = intercheckingIntervalTextField.text.toShort(),
             resourceOfMachine = resourceOfMachineTextField.text.toShort(),
-            nextCheckAt = nextCheckAtDatePicker.value as Date,
+            nextCheckAt = Date.from(nextCheckAtDatePicker.value.atStartOfDay(ZoneId.systemDefault()).toInstant()),
             checkTime = checkTimeTextField.text.toShort(),
-            inventoryAt = inventoryAtDatePicker.value as Date,
+            inventoryAt = Date.from(inventoryAtDatePicker.value.atStartOfDay(ZoneId.systemDefault()).toInstant()),
             lastChecker = lastCheckerComboBox.value,
             modem = modemComboBox.value,
             address = addressTextField.text

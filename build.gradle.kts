@@ -44,7 +44,6 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
     // Тесты
-
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }

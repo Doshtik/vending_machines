@@ -14,7 +14,6 @@ class TypeService (
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int = 0,
 
-
     @Column(name = "type_name")
     var typeName: String = ""
 )

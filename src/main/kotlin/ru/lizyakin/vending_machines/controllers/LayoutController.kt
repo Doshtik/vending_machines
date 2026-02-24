@@ -69,21 +69,21 @@ class LayoutController {
 
     @FXML
     fun navToAdminCompanies() {
-
+        //Нет примера
     }
 
     @FXML
     fun navToAdminUsers() {
-
+        nav("admin-user-view.fxml", "Администрирование / Пользователи")
     }
 
     @FXML
     fun navToAdminModems() {
-
+        //Нет примера
     }
 
     @FXML
     fun navToAdminAdditionally() {
-
+        //Нет примера
     }
 }

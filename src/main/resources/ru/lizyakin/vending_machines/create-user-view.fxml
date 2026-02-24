@@ -7,7 +7,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<VBox xmlns="http://javafx.com/javafx"
+<VBox styleClass="form-container"
+      stylesheets="styles/forms.css"
+      xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="ru.lizyakin.vending_machines.controllers.CreateUserController"
       prefHeight="400.0" prefWidth="600.0">
@@ -15,7 +17,7 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-    <GridPane hgap="15.0" vgap="10.0">
+    <GridPane hgap="15.0" vgap="15.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" prefWidth="200.0" />
             <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
@@ -30,24 +32,24 @@
         </rowConstraints>
 
         <children>
-            <Label text="Роль:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <ComboBox fx:id="roleComboBox" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label styleClass="form-label" text="Роль:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <ComboBox styleClass="vk-combo" fx:id="roleComboBox" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-            <Label text="Фамилия:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <TextField fx:id="lastnameTextField" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label styleClass="form-label" text="Фамилия:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField styleClass="vk-input" fx:id="lastnameTextField" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-            <Label text="Имя:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <TextField fx:id="firstnameTextField" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label styleClass="form-label" text="Имя:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField styleClass="vk-input" fx:id="firstnameTextField" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-            <Label text="Отчество:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-            <TextField fx:id="surnameTextField" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label styleClass="form-label" text="Отчество:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <TextField styleClass="vk-input" fx:id="surnameTextField" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-            <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-            <TextField fx:id="emailTextField" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label styleClass="form-label" text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <TextField styleClass="vk-input" fx:id="emailTextField" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="4" />
         </children>
     </GridPane>
 
-    <HBox alignment="CENTER_RIGHT" spacing="10.0">
-        <Button defaultButton="true" text="Сохранить" onAction="#onConfirm" />
+    <HBox alignment="CENTER_RIGHT" spacing="10.0" styleClass="form-footer">
+        <Button defaultButton="true" text="Сохранить" styleClass="btn-primary" onAction="#onConfirm" />
     </HBox>
 </VBox>

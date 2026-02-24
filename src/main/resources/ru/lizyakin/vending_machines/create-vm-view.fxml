@@ -4,85 +4,71 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.lizyakin.vending_machines.controllers.CreateVMController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
+<VBox prefHeight="700.0" prefWidth="650.0"
+      styleClass="form-container"
+      stylesheets="@styles/forms.css"
+      xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.lizyakin.vending_machines.controllers.CreateVMController">
 
-    <GridPane hgap="15.0" vgap="10.0">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" prefWidth="200.0" />
-            <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
-        </columnConstraints>
+    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+        <GridPane hgap="20.0" vgap="12.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="180.0" prefWidth="220.0" />
+                <ColumnConstraints hgrow="ALWAYS" minWidth="250.0" />
+            </columnConstraints>
 
-        <rowConstraints>
-            <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
-             <RowConstraints />
-             <RowConstraints />
-             <RowConstraints />
-             <RowConstraints />
-             <RowConstraints />
-             <RowConstraints />
-             <RowConstraints />
-             <RowConstraints />
-             <RowConstraints />
-             <RowConstraints />
-             <RowConstraints />
-             <RowConstraints />
-             <RowConstraints />
-             <RowConstraints />
-        </rowConstraints>
+            <children>
+                <Label text="Название модели:" styleClass="form-label" GridPane.rowIndex="0" />
+                <TextField fx:id="modelNameTextField" styleClass="vk-input" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-        <children>
-            <Label text="Название модели:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <TextField fx:id="modelNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <Label text="Статус:" styleClass="form-label" GridPane.rowIndex="1" />
+                <ComboBox fx:id="statusComboBox" styleClass="vk-combo" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-            <Label text="Статус:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <ComboBox fx:id="statusComboBox" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="Производитель:" styleClass="form-label" GridPane.rowIndex="2" />
+                <ComboBox fx:id="manufacturerComboBox" styleClass="vk-combo" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-            <Label text="Производитель:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <ComboBox fx:id="manufacturerComboBox" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label text="Страна:" styleClass="form-label" GridPane.rowIndex="3" />
+                <ComboBox fx:id="countryComboBox" styleClass="vk-combo" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-            <Label text="Страна:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-            <ComboBox fx:id="countryComboBox" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label text="Модем:" styleClass="form-label" GridPane.rowIndex="4" />
+                <ComboBox fx:id="modemComboBox" styleClass="vk-combo" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-            <Label text="Модем:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-            <ComboBox fx:id="modemComboBox" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label text="Дата создания:" styleClass="form-label" GridPane.rowIndex="5" />
+                <DatePicker fx:id="createdAtDatePicker" styleClass="vk-datepicker" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-            <!-- Даты и интервалы -->
-            <Label text="Дата создания:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-            <DatePicker fx:id="createdAtDatePicker" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <Label text="Дата ввода в экспл.:" styleClass="form-label" GridPane.rowIndex="6" />
+                <DatePicker fx:id="commissionedAtDatePicker" styleClass="vk-datepicker" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
-            <Label text="Дата ввода в экспл.:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-            <DatePicker fx:id="commissionedAtDatePicker" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <Label text="Последняя проверка:" styleClass="form-label" GridPane.rowIndex="7" />
+                <DatePicker fx:id="lastTimeCheckedAtDatePicker" styleClass="vk-datepicker" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
-            <Label text="Последняя проверка:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
-            <DatePicker fx:id="lastTimeCheckedAtDatePicker" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <Label text="Срок до след. проверки:" styleClass="form-label" GridPane.rowIndex="8" />
+                <DatePicker fx:id="nextCheckAtDatePicker" styleClass="vk-datepicker" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="8" />
 
-            <Label text="Срок до след. проверки:" GridPane.columnIndex="0" GridPane.rowIndex="8" />
-            <DatePicker fx:id="nextCheckAtDatePicker" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                <Label text="Межповерочный интервал:" styleClass="form-label" GridPane.rowIndex="9" />
+                <TextField fx:id="intercheckingIntervalTextField" styleClass="vk-input" GridPane.columnIndex="1" GridPane.rowIndex="9" />
 
-            <Label text="Межповерочный интервал:" GridPane.columnIndex="0" GridPane.rowIndex="9" />
-            <TextField fx:id="intercheckingIntervalTextField" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                <Label text="Ресурс оборудования:" styleClass="form-label" GridPane.rowIndex="10" />
+                <TextField fx:id="resourceOfMachineTextField" styleClass="vk-input" GridPane.columnIndex="1" GridPane.rowIndex="10" />
 
-            <Label text="Ресурс оборудования:" GridPane.columnIndex="0" GridPane.rowIndex="10" />
-            <TextField fx:id="resourceOfMachineTextField" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                <Label text="Время проверки:" styleClass="form-label" GridPane.rowIndex="11" />
+                <TextField fx:id="checkTimeTextField" styleClass="vk-input" GridPane.columnIndex="1" GridPane.rowIndex="11" />
 
-            <Label text="Время проверки:" GridPane.columnIndex="0" GridPane.rowIndex="11" />
-            <TextField fx:id="checkTimeTextField" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                <Label text="Дата инвентаризации:" styleClass="form-label" GridPane.rowIndex="12" />
+                <DatePicker fx:id="inventoryAtDatePicker" styleClass="vk-datepicker" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="12" />
 
-            <Label text="Дата инвентаризации:" GridPane.columnIndex="0" GridPane.rowIndex="12" />
-            <DatePicker fx:id="inventoryAtDatePicker" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                <Label text="Последний проверяющий:" styleClass="form-label" GridPane.rowIndex="13" />
+                <ComboBox fx:id="lastCheckerComboBox" styleClass="vk-combo" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="13" />
 
-            <Label text="Последний проверяющий:" GridPane.columnIndex="0" GridPane.rowIndex="13" />
-            <ComboBox fx:id="lastCheckerComboBox" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                <Label text="Адрес:" styleClass="form-label" GridPane.rowIndex="14" />
+                <TextField fx:id="addressTextField" styleClass="vk-input" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            </children>
+        </GridPane>
+    </ScrollPane>
 
-            <Label text="Адрес:" GridPane.columnIndex="0" GridPane.rowIndex="14" />
-            <TextField fx:id="addressTextField" GridPane.columnIndex="1" GridPane.rowIndex="14" />
-        </children>
-    </GridPane>
-
-    <HBox alignment="CENTER_RIGHT" spacing="10.0">
-        <Button defaultButton="true" text="Сохранить" onAction="#onConfirm"/>
+    <HBox alignment="CENTER_RIGHT" spacing="15.0" styleClass="form-footer">
+        <Button text="Сохранить" styleClass="btn-primary" onAction="#onConfirm"/>
     </HBox>
 </VBox>
+

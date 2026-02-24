@@ -7,16 +7,19 @@
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ru.lizyakin.vending_machines.controllers.AdminVMController"
-            prefHeight="400.0" prefWidth="600.0">
-    <HBox spacing="10" alignment="CENTER_LEFT">
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="ru.lizyakin.vending_machines.controllers.AdminVMController"
+        prefHeight="400.0" prefWidth="600.0"
+        stylesheets="@styles/admin.css"
+        styleClass="admin-container">
+
+    <HBox spacing="10" alignment="CENTER_LEFT" styleClass="toolbar">
         <Button text="Создать" onAction="#onCreateVendingMachine"/>
         <Button text="Обновить" onAction="#onUpdateVendingMachine"/>
         <Button text="Удалить" onAction="#onDeleteVendingMachine"/>
     </HBox>
 
-    <TableView fx:id="tableView" VBox.vgrow="ALWAYS">
+    <TableView fx:id="tableView" VBox.vgrow="ALWAYS" styleClass="vk-table">
         <columns>
             <TableColumn fx:id="idColumn" text="ИД" prefWidth="100" />
             <TableColumn fx:id="modelNameColumn" text="Модель" prefWidth="150" />
@@ -30,7 +33,7 @@
         </columnResizePolicy>
     </TableView>
 
-    <HBox spacing="10" alignment="CENTER_RIGHT">
+    <HBox spacing="10" alignment="CENTER_RIGHT" styleClass="footer">
         <Button text="Обновить таблицу" onAction="#initialize"/>
     </HBox>
 </VBox>

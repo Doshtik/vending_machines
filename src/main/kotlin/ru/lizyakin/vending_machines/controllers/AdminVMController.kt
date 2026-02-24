@@ -87,7 +87,7 @@ class AdminVMController {
     @FXML
     public fun onUpdateVendingMachine() {
         if (selectedVendingMachine == null) {
-            val alert: Alert = Alert(Alert.AlertType.WARNING, "Торговый автомат не выбран")
+            val alert: Alert = Alert(Alert.AlertType.ERROR, "Торговый автомат не выбран")
             alert.showAndWait()
             return
         }

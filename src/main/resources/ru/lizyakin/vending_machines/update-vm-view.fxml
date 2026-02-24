@@ -77,6 +77,6 @@
 
     <HBox alignment="CENTER_RIGHT" spacing="10.0">
         <Button text="Отмена" />
-        <Button defaultButton="true" text="Сохранить" />
+        <Button defaultButton="true" text="Сохранить" onAction="#onConfirm"/>
     </HBox>
 </VBox>

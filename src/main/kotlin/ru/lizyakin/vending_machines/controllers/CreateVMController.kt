@@ -86,6 +86,7 @@ class CreateVMController {
         )
         if (confirmAlert.showAndWait().get() != ButtonType.YES) return
 
+
         var rnd = Random()
         val vm = VendingMachine(
             id = null,
@@ -129,5 +130,81 @@ class CreateVMController {
         }
 
         Thread(task).start()
+    }
+
+    private fun parseData(){
+        if (statusComboBox.value == null) {
+            var alert = Alert(Alert.AlertType.ERROR, "Статус не выбран").showAndWait()
+            return
+        }
+
+        if (manufacturerComboBox.value == null) {
+            var alert = Alert(Alert.AlertType.ERROR, "Производитель не выбран").showAndWait()
+            return
+        }
+
+        if (countryComboBox.value == null) {
+            var alert = Alert(Alert.AlertType.ERROR, "Страна не выбрана").showAndWait()
+            return
+        }
+
+        if (modelNameTextField.text.isEmpty()) {
+            var alert = Alert(Alert.AlertType.ERROR, "Название молдели не указано").showAndWait()
+            return
+        }
+
+        if (createdAtDatePicker.value == null) {
+            var alert = Alert(Alert.AlertType.ERROR, "Дата создания не указана").showAndWait()
+            return
+        }
+
+        if (commissionedAtDatePicker.value == null) {
+            var alert = Alert(Alert.AlertType.ERROR, "Дата комиссии не указана").showAndWait()
+            return
+        }
+
+        if (lastTimeCheckedAtDatePicker.value == null) {
+            lastTimeCheckedAtDatePicker.value = createdAtDatePicker.value
+        }
+
+        if (intercheckingIntervalTextField.text.isEmpty()) {
+            var alert = Alert(Alert.AlertType.ERROR, "Интервал обслуживания не указан").showAndWait()
+            return
+        }
+
+        if (resourceOfMachineTextField.text.isEmpty()) {
+            var alert = Alert(Alert.AlertType.ERROR, "Ресурс автомата не указан").showAndWait()
+            return
+        }
+
+        if (nextCheckAtDatePicker.value == null) {
+            var alert = Alert(Alert.AlertType.ERROR, "Дата следущего обслуживания не указана").showAndWait()
+            return
+        }
+
+        if (checkTimeTextField.text.isEmpty()) {
+            var alert = Alert(Alert.AlertType.ERROR, "Время проверки не указано").showAndWait()
+            return
+        }
+
+        if (inventoryAtDatePicker.value == null) {
+            var alert = Alert(Alert.AlertType.ERROR, "Дата инвенторизвации не указана").showAndWait()
+            return
+        }
+
+        if (lastCheckerComboBox.value == null) {
+            var alert = Alert(Alert.AlertType.ERROR, "Последний прове").showAndWait()
+            return
+        }
+
+        if (modemComboBox.value == null) {
+            var alert = Alert(Alert.AlertType.ERROR, "Статус не выбран").showAndWait()
+            return
+        }
+
+        if (addressTextField.text.isEmpty()) {
+            var alert = Alert(Alert.AlertType.ERROR, "Статус не выбран").showAndWait()
+            return
+        }
     }
 }

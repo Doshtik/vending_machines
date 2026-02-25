@@ -88,13 +88,51 @@
 }
 
 /* Скроллбары */
-.scroll-bar:vertical .thumb,
-.scroll-bar:horizontal .thumb {
-    -fx-background-color: -fx-scrollbar-thumb;
-    -fx-background-radius: 6px;
+.table-view .scroll-bar:vertical,
+.table .scroll-bar:vertical,
+.table-view .scroll-bar:horizontal,
+.table .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
 }
 
-.scroll-bar:vertical .thumb:hover,
-.scroll-bar:horizontal .thumb:hover {
+/* Убираем кнопки-стрелки (делаем скроллбар минималистичным) */
+.table-view .scroll-bar:vertical .increment-button,
+.table-view .scroll-bar:vertical .decrement-button,
+.table .scroll-bar:vertical .increment-button,
+.table .scroll-bar:vertical .decrement-button,
+.table-view .scroll-bar:horizontal .increment-button,
+.table-view .scroll-bar:horizontal .decrement-button,
+.table .scroll-bar:horizontal .increment-button,
+.table .scroll-bar:horizontal .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+/* Ползунок (thumb) */
+.table-view .scroll-bar:vertical .thumb,
+.table .scroll-bar:vertical .thumb,
+.table-view .scroll-bar:horizontal .thumb,
+.table .scroll-bar:horizontal .thumb {
+    -fx-background-color: -fx-scrollbar-thumb;
+    -fx-background-radius: 6px;
+    -fx-background-insets: 2px;
+}
+
+/* Ползунок при наведении */
+.table-view .scroll-bar:vertical .thumb:hover,
+.table .scroll-bar:vertical .thumb:hover,
+.table-view .scroll-bar:horizontal .thumb:hover,
+.table .scroll-bar:horizontal .thumb:hover {
     -fx-background-color: -fx-scrollbar-thumb-hover;
+}
+
+/* Трек (фон) — можно оставить прозрачным или задать цвет */
+.table-view .scroll-bar:vertical .track,
+.table .scroll-bar:vertical .track,
+.table-view .scroll-bar:horizontal .track,
+.table .scroll-bar:horizontal .track {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
 }

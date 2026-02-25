@@ -43,6 +43,9 @@ dependencies {
     // Kotlin Reflection (обязательно!)
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
+    // Экспорт Excel
+    implementation("org.apache.poi:poi-ooxml:5.2.5")
+
     // Тесты
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")

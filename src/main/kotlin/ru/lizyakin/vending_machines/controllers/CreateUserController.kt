@@ -41,7 +41,6 @@ class CreateUserController {
 
     @FXML
     fun onConfirm() {
-        // Валидация данных перед показом подтверждения
         if (!validateData()) return
 
         val confirmAlert = Alert(
@@ -52,7 +51,6 @@ class CreateUserController {
         )
         if (confirmAlert.showAndWait().orElse(null) != ButtonType.YES) return
 
-        // Создание объекта пользователя
         val user = User(
             id = null,
             role = roleComboBox.value,
@@ -90,12 +88,10 @@ class CreateUserController {
     private fun validateData(): Boolean {
         val errors = mutableListOf<String>()
 
-        // Проверка выбора роли
         if (roleComboBox.value == null) {
             errors.add("Не выбрана роль пользователя")
         }
 
-        // Проверка текстовых полей на пустоту
         if (lastnameTextField.text.isBlank()) {
             errors.add("Фамилия не может быть пустой")
         }

@@ -67,7 +67,6 @@ class AdminUserController {
     @FXML
     fun onCreateUser() {
         try {
-            // Укажи путь к FXML от корня resources
             val loader = FXMLLoader(javaClass.getResource("/ru/lizyakin/vending_machines/create-user-view.fxml"))
             val root = loader.load<Parent>()
 
@@ -96,7 +95,6 @@ class AdminUserController {
         val loader = FXMLLoader(javaClass.getResource("/ru/lizyakin/vending_machines/update-user-view.fxml"))
         val root = loader.load<Parent>()
 
-        // Получаем контроллер и передаем в него пользователя
         val controller = loader.getController<UpdateUserController>()
         controller.setUser(selectedUser)
 

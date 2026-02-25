@@ -103,10 +103,8 @@ class UpdateVMController {
 
     @FXML
     fun onConfirm() {
-        // Сначала валидация
         if (!validateData()) return
 
-        // Подстановка значения по умолчанию для lastTimeCheckedAt, если не указано
         if (lastTimeCheckedAtDatePicker.value == null) {
             lastTimeCheckedAtDatePicker.value = createdAtDatePicker.value
         }
@@ -163,46 +161,37 @@ class UpdateVMController {
     private fun validateData(): Boolean {
         val errors = mutableListOf<String>()
 
-        // Проверка заполненности комбобоксов
         if (statusComboBox.value == null) errors.add("Не выбран статус")
         if (manufacturerComboBox.value == null) errors.add("Не выбран производитель")
         if (countryComboBox.value == null) errors.add("Не выбрана страна")
         if (lastCheckerComboBox.value == null) errors.add("Не выбран последний проверяющий")
         if (modemComboBox.value == null) errors.add("Не выбран модем")
 
-        // Текстовые поля (не пустые)
         if (modelNameTextField.text.isBlank()) errors.add("Не указано название модели")
         if (addressTextField.text.isBlank()) errors.add("Не указан адрес")
 
-        // Дата создания обязательна
         val createdAt = createdAtDatePicker.value
         if (createdAt == null) {
             errors.add("Не указана дата создания")
         }
 
-        // Дата комиссии
         val commissionedAt = commissionedAtDatePicker.value
         if (commissionedAt == null) {
             errors.add("Не указана дата комиссии")
         }
 
-        // Дата последней проверки может быть не указана (заменится на дату создания)
         val lastTimeCheckedAt = lastTimeCheckedAtDatePicker.value
-        // Если не указана – позже подставим createdAt, поэтому здесь не ругаемся
 
-        // Дата следующей проверки
         val nextCheckAt = nextCheckAtDatePicker.value
         if (nextCheckAt == null) {
             errors.add("Не указана дата следующего обслуживания")
         }
 
-        // Дата инвентаризации
         val inventoryAt = inventoryAtDatePicker.value
         if (inventoryAt == null) {
             errors.add("Не указана дата инвентаризации")
         }
 
-        // Числовые поля
         val intercheckingInterval = parseShort(intercheckingIntervalTextField.text)
         if (intercheckingInterval == null) {
             errors.add("Интервал обслуживания должен быть целым положительным числом")
@@ -222,21 +211,17 @@ class UpdateVMController {
             errors.add("Время проверки должно быть > 0 и < 20")
         }
 
-        // Если есть ошибки с датами, дальше не проверяем соотношения, чтобы избежать NPE
         if (errors.isNotEmpty()) {
             showErrors(errors)
             return false
         }
 
-        // Теперь проверяем соотношения дат (все даты гарантированно не null кроме lastTimeCheckedAt)
         val today = LocalDate.now()
 
-        // commissioned_at >= created_at
         if (commissionedAt!! < createdAt!!) {
             errors.add("Дата комиссии не может быть раньше даты создания")
         }
 
-        // inventory_at >= created_at И inventory_at <= CURRENT_TIMESTAMP
         if (inventoryAt!! < createdAt) {
             errors.add("Дата инвентаризации не может быть раньше даты создания")
         }
@@ -244,7 +229,6 @@ class UpdateVMController {
             errors.add("Дата инвентаризации не может быть в будущем")
         }
 
-        // last_time_checked_at (если задано) >= created_at и <= today
         if (lastTimeCheckedAt != null) {
             if (lastTimeCheckedAt < createdAt) {
                 errors.add("Дата последней проверки не может быть раньше даты создания")
@@ -254,12 +238,10 @@ class UpdateVMController {
             }
         }
 
-        // next_check_at >= commissioned_at
         if (nextCheckAt!! < commissionedAt) {
             errors.add("Дата следующего обслуживания не может быть раньше даты комиссии")
         }
 
-        // Дополнительная проверка на положительность интервала и ресурса (уже частично сделано)
         if (intercheckingInterval!! <= 0) {
             errors.add("Интервал обслуживания должен быть больше 0")
         }

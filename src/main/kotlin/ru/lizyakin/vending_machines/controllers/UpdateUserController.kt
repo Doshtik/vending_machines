@@ -58,7 +58,6 @@ class UpdateUserController {
 
     @FXML
     fun onConfirm() {
-        // Валидация данных перед показом подтверждения
         if (!validateData()) return
 
         val confirmAlert = Alert(
@@ -69,7 +68,6 @@ class UpdateUserController {
         )
         if (confirmAlert.showAndWait().orElse(null) != ButtonType.YES) return
 
-        // Создание объекта пользователя
         val user = User(
             id = editingUser.id,
             role = roleComboBox.value,
@@ -107,12 +105,10 @@ class UpdateUserController {
     private fun validateData(): Boolean {
         val errors = mutableListOf<String>()
 
-        // Проверка выбора роли
         if (roleComboBox.value == null) {
             errors.add("Не выбрана роль пользователя")
         }
 
-        // Проверка текстовых полей на пустоту
         if (lastnameTextField.text.isBlank()) {
             errors.add("Фамилия не может быть пустой")
         }
@@ -125,7 +121,6 @@ class UpdateUserController {
         if (emailTextField.text.isBlank()) {
             errors.add("Email не может быть пустым")
         } else {
-            // Проверка формата email (простая проверка)
             val email = emailTextField.text.trim()
             if (!isValidEmail(email)) {
                 errors.add("Введён некорректный email (должен содержать @ и домен)")

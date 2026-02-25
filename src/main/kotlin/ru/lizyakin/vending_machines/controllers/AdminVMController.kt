@@ -97,7 +97,6 @@ class AdminVMController {
         val loader = FXMLLoader(javaClass.getResource("/ru/lizyakin/vending_machines/update-vm-view.fxml"))
         val root = loader.load<Parent>()
 
-        // Получаем контроллер и передаем в него пользователя
         val controller = loader.getController<UpdateVMController>()
         controller.setVendingMachine(selectedVendingMachine)
 

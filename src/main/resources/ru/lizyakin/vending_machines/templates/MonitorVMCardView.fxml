@@ -9,7 +9,20 @@
 <StackPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="ru.lizyakin.vending_machines.controllers.MonitorVMCardViewController">
-    <TableView>
-
+    <TableView stylesheets="@../styles/table.css" fx:id="vmTableView" VBox.vgrow="ALWAYS" styleClass="table">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ИД" prefWidth="100" styleClass="table-column"/>
+            <TableColumn fx:id="vmColumn" text="Торговый автомат" prefWidth="150" styleClass="table-column"/>
+            <TableColumn fx:id="connectionColumn" text="Связь" prefWidth="150" styleClass="table-column"/>
+            <TableColumn fx:id="loadColumn" text="Загрузка" prefWidth="70" styleClass="table-column"/>
+            <TableColumn fx:id="cashColumn" text="Денежные стредства" prefWidth="100" styleClass="table-column"/>
+            <TableColumn fx:id="eventColumn" text="События" prefWidth="100" styleClass="table-column"/>
+            <TableColumn fx:id="epuipmentColumn" text="Оборудование" prefWidth="100" styleClass="table-column"/>
+            <TableColumn fx:id="informationColumn" text="Информация" prefWidth="100" styleClass="table-column"/>
+            <TableColumn fx:id="additionalColumn" text="Доп." prefWidth="100" styleClass="table-column"/>
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+        </columnResizePolicy>
     </TableView>
 </StackPane>

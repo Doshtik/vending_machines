@@ -1,0 +1,100 @@
+.root {
+    -fx-bg-card: #2A2C2F;
+    -fx-border: #3A3C3F;
+    -fx-table-header-bg: #2F3134;
+    -fx-table-row-odd: #2F3134;
+    -fx-table-row-hover: #1E3A5A;
+    -fx-table-row-selected: #1A3347;
+    -fx-text-main: #E6E6E6;
+    -fx-text-muted: #8E9297;
+    -fx-scrollbar-thumb: #4F5257;
+    -fx-scrollbar-thumb-hover: #6A6E73;
+}
+
+/* Сама таблица (фон, рамка, скругление) */
+.table-view, .table {
+    -fx-background-color: -fx-bg-card;
+    -fx-border-color: -fx-border;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+}
+
+/* Заголовок таблицы: фон и нижняя граница */
+.table .column-header-background {
+    -fx-background-color: -fx-table-header-bg;
+    -fx-background-radius: 12px 12px 0 0;
+    -fx-border-width: 0 0 1px 0;           /* нижняя линия под заголовком */
+    -fx-border-color: -fx-border;
+}
+
+/* Каждый заголовок столбца */
+.table .column-header {
+    -fx-background-color: transparent;      /* прозрачный, чтобы видеть фон родителя */
+    -fx-border-width: 0 1px 0 0;            /* вертикальные разделители справа */
+    -fx-border-color: -fx-border;
+    -fx-padding: 8px 0;                     /* вертикальные отступы */
+}
+
+/* Последний заголовок без правой границы */
+.table .column-header:last-visible {
+    -fx-border-width: 0;
+}
+
+/* Текст в заголовке */
+.table .column-header .label {
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-text-fill: -fx-text-muted;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 16px;                    /* отступы как у ячеек */
+}
+
+/* Стрелка сортировки (если есть) */
+.table .column-header .arrow {
+    -fx-background-color: -fx-text-muted;
+}
+
+/* Ячейки таблицы */
+.table-cell {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 16px;
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-text-main;
+    -fx-border-width: 0 1px 0 0;            /* вертикальные линии между столбцами */
+    -fx-border-color: -fx-border;
+}
+
+/* Последняя видимая ячейка в строке без правой границы */
+.table-cell:last-visible {
+    -fx-border-width: 0;
+}
+
+/* Строки таблицы */
+.table-row-cell {
+    -fx-background-color: -fx-bg-card;
+    -fx-min-height: 48px;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: -fx-table-row-odd;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: -fx-table-row-hover;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: -fx-table-row-selected;
+}
+
+/* Скроллбары */
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: -fx-scrollbar-thumb;
+    -fx-background-radius: 6px;
+}
+
+.scroll-bar:vertical .thumb:hover,
+.scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: -fx-scrollbar-thumb-hover;
+}

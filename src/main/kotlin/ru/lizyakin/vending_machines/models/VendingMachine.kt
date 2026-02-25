@@ -24,7 +24,6 @@ class VendingMachine (
     var id: Int?,
 
     @Column(name = "inventory_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var inventoryId: Int?,
 
     @ManyToOne(fetch = FetchType.EAGER)

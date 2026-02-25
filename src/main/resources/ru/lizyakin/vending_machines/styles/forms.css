@@ -1,0 +1,115 @@
+* {
+    -fx-bg-app: #1E1F22;
+    -fx-bg-card: #2A2C2F;
+    -fx-border: #3A3C3F;
+    -fx-text-main: #E6E6E6;
+    -fx-text-muted: #8E9297;
+    -fx-color-primary: #8A2BE2;
+    -fx-color-primary-hover: #9B4DFF;
+    -fx-shadow: rgba(0,0,0,0.4);
+}
+
+.root {
+    -fx-background-color: -fx-bg-app;
+    -fx-font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+    -fx-font-size: 14px;
+}
+
+.form-body {
+    -fx-background-color: -fx-bg-card;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -fx-border-color: -fx-border;
+    -fx-padding: 25px 30px;
+    -fx-hgap: 20px;
+    -fx-vgap: 15px;
+    -fx-effect: dropshadow(gaussian, -fx-shadow, 10, 0, 0, 2);
+}
+
+.form-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-text-fill: -fx-text-muted;
+    -fx-alignment: CENTER_RIGHT;
+    -fx-padding: 0 10px 0 0;
+}
+
+.form-input, .form-combobox, .form-datepicker {
+    -fx-background-color: -fx-bg-app;
+    -fx-border-color: -fx-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 10px 15px;
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-text-main;
+    -fx-prompt-text-fill: -fx-text-muted;
+    -fx-min-height: 40px;
+}
+
+.form-input:focused, .form-combobox:focused, .form-datepicker:focused {
+    -fx-border-color: -fx-color-primary;
+}
+
+.form-input:hover, .form-combobox:hover, .form-datepicker:hover {
+    -fx-border-color: #6A6E73;
+}
+
+/* Для комбобокса нужно стилизовать также кнопку со стрелкой */
+.form-combobox .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.form-combobox .arrow-button .arrow {
+    -fx-background-color: -fx-text-muted;
+}
+
+.form-combobox .list-cell {
+    -fx-background-color: -fx-bg-app;
+    -fx-text-fill: -fx-text-main;
+    -fx-padding: 8px 15px;
+}
+
+/* Для DatePicker также нужно стилизовать части */
+
+.form-datepicker .text-field {
+    -fx-background-color: -fx-bg-app;
+    -fx-border-color: transparent; /* убираем лишнюю границу, так как основной border у родителя */
+    -fx-text-fill: -fx-text-main;
+    -fx-prompt-text-fill: -fx-text-muted;
+    -fx-padding: 10px 0 10px 15px; /* подгоняем отступы */
+}
+
+.form-datepicker .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.form-datepicker .arrow-button .arrow {
+    -fx-background-color: -fx-text-muted;
+}
+
+.form-datepicker .cell {
+    -fx-background-color: -fx-bg-app;
+    -fx-text-fill: -fx-text-main;
+}
+
+.form-button {
+    -fx-background-color: -fx-color-primary;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-padding: 12px 30px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+    -fx-min-height: 44px;
+    -fx-min-width: 150px;
+}
+
+.form-button:hover {
+    -fx-background-color: -fx-color-primary-hover;
+}
+
+.form-button:pressed {
+    -fx-background-color: derive(-fx-color-primary, -20%);
+}

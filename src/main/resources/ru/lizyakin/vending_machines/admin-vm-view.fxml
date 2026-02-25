@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <VBox xmlns="http://javafx.com/javafx"
         xmlns:fx="http://javafx.com/fxml"
         fx:controller="ru.lizyakin.vending_machines.controllers.AdminVMController"
-        prefHeight="400.0" prefWidth="600.0"
         stylesheets="@styles/admin.css"
-        styleClass="admin-container">
+        styleClass="admin-container"
+        spacing="10">
 
     <HBox spacing="10" alignment="CENTER_LEFT" styleClass="toolbar">
-        <Button text="Создать" onAction="#onCreateVendingMachine"/>
-        <Button text="Обновить" onAction="#onUpdateVendingMachine"/>
-        <Button text="Удалить" onAction="#onDeleteVendingMachine"/>
+        <Button text="Создать" onAction="#onCreateVendingMachine" styleClass="btn-crud-create"/>
+        <Button text="Обновить" onAction="#onUpdateVendingMachine" styleClass="btn-crud-update"/>
+        <Button text="Удалить" onAction="#onDeleteVendingMachine" styleClass="btn-crud-delete"/>
     </HBox>
 
-    <TableView fx:id="tableView" VBox.vgrow="ALWAYS" styleClass="vk-table">
+    <TableView stylesheets="@styles/table.css" fx:id="tableView" VBox.vgrow="ALWAYS" styleClass="table">
         <columns>
-            <TableColumn fx:id="idColumn" text="ИД" prefWidth="100" />
-            <TableColumn fx:id="modelNameColumn" text="Модель" prefWidth="150" />
-            <TableColumn fx:id="companyColumn" text="Компания" prefWidth="150" />
-            <TableColumn fx:id="modemColumn" text="Модем" prefWidth="70" />
-            <TableColumn fx:id="addressColumn" text="Адрес" prefWidth="100" />
-            <TableColumn fx:id="worktimeColumn" text="Время работы" prefWidth="100" />
+            <TableColumn fx:id="idColumn" text="ИД" prefWidth="100" styleClass="table-column"/>
+            <TableColumn fx:id="modelNameColumn" text="Модель" prefWidth="150" styleClass="table-column"/>
+            <TableColumn fx:id="companyColumn" text="Компания" prefWidth="150" styleClass="table-column"/>
+            <TableColumn fx:id="modemColumn" text="Модем" prefWidth="70" styleClass="table-column"/>
+            <TableColumn fx:id="addressColumn" text="Адрес" prefWidth="100" styleClass="table-column"/>
+            <TableColumn fx:id="worktimeColumn" text="Время работы" prefWidth="100" styleClass="table-column"/>
         </columns>
         <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

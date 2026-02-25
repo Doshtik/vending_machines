@@ -39,7 +39,6 @@
 }
 
 .sidebar-header {
-    -fx-padding: 16 20;
     -fx-border-color: -fx-border;
     -fx-border-width: 0 0 1px 0;
     -fx-background-color: -fx-bg-card;
@@ -57,6 +56,85 @@
     -fx-padding: 8 12;
     -fx-background-color: -fx-bg-card;
     -fx-spacing: 4px;
+}
+
+/* админка */
+.admin-menu {
+    /* Базовые свойства как у .nav-menu */
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-text-main;
+    -fx-font-size: 14px;
+    -fx-font-weight: 400;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+    -fx-min-height: 40px;
+    -fx-max-width: Infinity;
+
+    /* Специфичные для админа: убираем скругление, уменьшаем отступы */
+    -fx-padding: 6 12;           /* Уменьшенные отступы (было 10 16) */
+    -fx-background-radius: 0;     /* Прямоугольная кнопка */
+    -fx-border-radius: 0;
+}
+
+/* Цвет текста метки */
+.admin-menu .label {
+    -fx-text-fill: -fx-text-main;
+}
+
+/* Стрелка раскрывающегося списка */
+.admin-menu .arrow-button .arrow {
+    -fx-background-color: -fx-text-main;
+}
+
+/* Состояние при наведении */
+.admin-menu:hover {
+    -fx-background-color: -fx-hover-bg;
+    -fx-text-fill: -fx-color-primary;
+}
+
+.admin-menu:hover .label {
+    -fx-text-fill: -fx-color-primary;
+}
+
+.admin-menu:hover .arrow-button .arrow {
+    -fx-background-color: -fx-color-primary;
+}
+
+/* Состояние при нажатии */
+.admin-menu:pressed {
+    -fx-background-color: -fx-pressed-bg;
+}
+
+/* Выпадающее меню (можно оставить скругление, либо убрать по желанию) */
+.admin-menu .context-menu {
+    -fx-background-color: -fx-bg-card;
+    -fx-border-color: -fx-border;
+    -fx-padding: 6px;
+    -fx-effect: dropshadow(gaussian, -fx-shadow, 20, 0, 0, 4);
+    -fx-min-width: 230px;
+
+    /* Скругление можно убрать, раскомментировав строки ниже */
+    /* -fx-background-radius: 0;
+    -fx-border-radius: 0; */
+}
+
+/* Пункты выпадающего меню */
+.admin-menu .menu-item {
+    -fx-background-color: transparent;
+    -fx-padding: 6 10;           /* Чуть уменьшенные отступы */
+    -fx-min-height: 32px;
+
+    /* Скругление можно убрать */
+    /* -fx-background-radius: 0; */
+}
+
+.admin-menu .menu-item:hover {
+    -fx-background-color: -fx-hover-bg;
+}
+
+.admin-menu .menu-item .label {
+    -fx-font-size: 13px;
+    -fx-text-fill: -fx-text-main;
 }
 
 /*

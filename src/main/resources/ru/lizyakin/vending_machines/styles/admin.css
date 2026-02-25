@@ -1,0 +1,111 @@
+* {
+    -fx-font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+    -fx-font-size: 14px;
+
+    /* Основные цвета */
+    -fx-bg-app: #1E1F22;                 /* Фон всего приложения */
+    -fx-bg-card: #2A2C2F;                 /* Фон карточек и панелей */
+    -fx-border: #3A3C3F;                   /* Цвет границ */
+    -fx-text-main: #E6E6E6;                /* Основной текст */
+    -fx-text-muted: #8E9297;                /* Приглушённый текст */
+
+    /* Цвета для кнопок CRUD */
+    -fx-color-create: #33B471;              /* Зелёный (создание) */
+    -fx-color-create-hover: #4EC489;         /* Светлее при наведении */
+    -fx-color-update: #0078D7;               /* Синий (обновление) */
+    -fx-color-update-hover: #2B88D8;          /* Светлее */
+    -fx-color-delete: #FF3B30;                /* Красный (удаление) */
+    -fx-color-delete-hover: #FF5E56;           /* Светлее */
+
+    /* Цвета для обычных кнопок (если понадобятся) */
+    -fx-color-primary: #8A2BE2;               /* Фиолетовый */
+    -fx-color-primary-hover: #9B4DFF;
+}
+
+/* Фон для корневого контейнера (весь VBox) */
+.root {
+    -fx-background-color: -fx-bg-app;
+    -fx-padding: 20px;                        /* Общий отступ вокруг содержимого */
+    -fx-spacing: 20px;                         /* Расстояние между элементами VBox */
+}
+
+/* Панель инструментов (верхний HBox с кнопками) */
+.toolbar {
+    -fx-background-color: -fx-bg-card;
+    -fx-border-color: -fx-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* Базовый стиль для всех CRUD‑кнопок */
+.button {
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+    -fx-min-height: 40px;
+    -fx-text-fill: white;
+}
+
+/* Кнопка "Создать" */
+.btn-crud-create {
+    -fx-background-color: -fx-color-create;
+}
+.btn-crud-create:hover {
+    -fx-background-color: -fx-color-create-hover;
+}
+.btn-crud-create:pressed {
+    -fx-background-color: derive(-fx-color-create, -20%);
+}
+
+/* Кнопка "Обновить" */
+.btn-crud-update {
+    -fx-background-color: -fx-color-update;
+}
+.btn-crud-update:hover {
+    -fx-background-color: -fx-color-update-hover;
+}
+.btn-crud-update:pressed {
+    -fx-background-color: derive(-fx-color-update, -20%);
+}
+
+/* Кнопка "Удалить" */
+.btn-crud-delete {
+    -fx-background-color: -fx-color-delete;
+}
+.btn-crud-delete:hover {
+    -fx-background-color: -fx-color-delete-hover;
+}
+.btn-crud-delete:pressed {
+    -fx-background-color: derive(-fx-color-delete, -20%);
+}
+
+/* Футер (нижний HBox с кнопкой обновления таблицы) */
+.footer {
+    -fx-background-color: -fx-bg-card;
+    -fx-border-color: -fx-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-padding: 12px 20px;
+    -fx-spacing: 15px;
+    -fx-alignment: CENTER_RIGHT;
+}
+
+/* Кнопка в футере (обновить таблицу) */
+.footer .button {
+    -fx-background-color: -fx-color-primary;
+    -fx-text-fill: white;
+}
+.footer .button:hover {
+    -fx-background-color: -fx-color-primary-hover;
+}
+.footer .button:pressed {
+    -fx-background-color: derive(-fx-color-primary, -20%);
+}

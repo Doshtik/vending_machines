@@ -20,7 +20,7 @@
     <!-- Сайдбар -->
     <VBox fx:id="sidebar" prefWidth="250.0" styleClass="sidebar">
         <VBox fx:id="sidebarHeader" alignment="CENTER_LEFT" styleClass="sidebar-header">
-            <MenuButton fx:id="adminMenuButton" maxWidth="Infinity" styleClass="nav-menu">
+            <MenuButton fx:id="adminMenuButton" maxWidth="Infinity" styleClass="admin-menu">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -61,21 +61,58 @@
         </VBox>
 
         <VBox fx:id="sidebarBody" spacing="10.0" VBox.vgrow="ALWAYS" styleClass="sidebar-nav">
-            <Button fx:id="buttonMain" onAction="#navToMain" text="Главная" maxWidth="Infinity" styleClass="nav-button"/>
-            <Button fx:id="button_monitorVm" onAction="#navToMonitorVM" text="Монитор ТА" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button fx:id="buttonMain" onAction="#navToMain" text="Главная" maxWidth="Infinity" styleClass="nav-button">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/search.svg" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="button_monitorVm" onAction="#navToMonitorVM" text="Монитор ТА" maxWidth="Infinity" styleClass="nav-button">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/display.svg" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
             <MenuButton fx:id="menubuttonReports" text="Детальные отчеты" maxWidth="Infinity" styleClass="nav-menu">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/file-earmark-bar-graph.svg" />
+                        </image>
+                    </ImageView>
+                </graphic>
                 <items>
                     <MenuItem fx:id="reportVM" onAction="#navToReportVM" text="Отчет по ТА"/>
                     <MenuItem fx:id="reportUsers" onAction="#navToReportUsers" text="Отчет по пользователям"/>
                 </items>
             </MenuButton>
             <MenuButton fx:id="menubuttonAccounting" text="Учёт ТМЦ" maxWidth="Infinity" styleClass="nav-menu">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/cart.svg" />
+                        </image>
+                    </ImageView>
+                </graphic>
                 <items>
                     <MenuItem fx:id="accountingVM" onAction="#navToAccountingVM" text="Учет ТА"/>
                     <MenuItem fx:id="accountingUsers" onAction="#navToAccountingUsers" text="Учёт пользователей"/>
                 </items>
             </MenuButton>
             <MenuButton fx:id="menubuttonAdmin" text="Администрирование" maxWidth="Infinity" styleClass="nav-menu">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/gear.svg" />
+                        </image>
+                    </ImageView>
+                </graphic>
                 <items>
                     <MenuItem fx:id="adminVM" onAction="#navToAdminVM" text="Торговые автоматы"/>
                     <MenuItem fx:id="adminCompanies" onAction="#navToAdminCompanies" text="Компании"/>
@@ -89,9 +126,6 @@
 
     <!-- Основная область -->
     <VBox fx:id="mainContent" HBox.hgrow="ALWAYS" styleClass="main-content">
-        <StackPane fx:id="asd">
-            <!-- Здесь будет информация об администраторе -->
-        </StackPane>
         <HBox fx:id="mainHeader" alignment="CENTER_LEFT" styleClass="content-header">
             <Label fx:id="companyName" text="ООО Торговые Автоматы" styleClass="company-label" />
             <Region HBox.hgrow="ALWAYS" />

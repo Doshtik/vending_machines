@@ -77,6 +77,8 @@ class AdminUserController {
 
             val stage = Stage()
             stage.scene = Scene(root)
+            stage.minWidth = 1200.0
+            stage.minHeight = 800.0
             stage.title = "Добавление пользователя"
             stage.showAndWait()
         } catch (e: Exception) {
@@ -103,6 +105,8 @@ class AdminUserController {
 
         val stage = Stage()
         stage.scene = Scene(root)
+        stage.minWidth = 1200.0
+        stage.minHeight = 800.0
         stage.title = "Редактирование " + selectedUser.lastname + " " + selectedUser.firstname
         stage.showAndWait()
 

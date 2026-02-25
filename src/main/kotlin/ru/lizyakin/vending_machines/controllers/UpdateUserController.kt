@@ -1,5 +1,6 @@
 package ru.lizyakin.vending_machines.controllers
 
+import javafx.application.Platform
 import javafx.concurrent.Task
 import javafx.fxml.FXML
 import javafx.scene.control.Alert
@@ -16,6 +17,7 @@ import ru.lizyakin.vending_machines.repositories.UserRepository
 import java.time.ZoneId
 
 class UpdateUserController {
+    @FXML lateinit var passwordTextField: TextField
     @FXML lateinit var emailTextField: TextField
     @FXML lateinit var surnameTextField: TextField
     @FXML lateinit var firstnameTextField: TextField
@@ -56,18 +58,29 @@ class UpdateUserController {
 
     @FXML
     fun onConfirm() {
-        val confirmAlert = Alert(Alert.AlertType.CONFIRMATION, "Обновить пользователя?", ButtonType.YES, ButtonType.NO)
-        if (confirmAlert.showAndWait().get() != ButtonType.YES) return
+        // Валидация данных перед показом подтверждения
+        if (!validateData()) return
 
+        val confirmAlert = Alert(
+            Alert.AlertType.CONFIRMATION,
+            "Создать пользователя?",
+            ButtonType.YES,
+            ButtonType.NO
+        )
+        if (confirmAlert.showAndWait().orElse(null) != ButtonType.YES) return
+
+        // Создание объекта пользователя
         val user = User(
             id = editingUser.id,
             role = roleComboBox.value,
-            lastname = lastnameTextField.text,
-            firstname = firstnameTextField.text,
-            surname = surnameTextField.text,
-            email = emailTextField.text,
-            password = ""
+            lastname = lastnameTextField.text.trim(),
+            firstname = firstnameTextField.text.trim(),
+            surname = surnameTextField.text.trim(),
+            email = emailTextField.text.trim(),
+            password = passwordTextField.text.trim()
         )
+
+        val stage = roleComboBox.scene.window as Stage
 
         val task = object : Task<Unit>() {
             override fun call() {
@@ -75,17 +88,64 @@ class UpdateUserController {
             }
         }
 
-        val stage = roleComboBox.scene.window as Stage
         task.setOnSucceeded {
-            val alert = Alert(Alert.AlertType.INFORMATION, "Пользователь успешно обновлен").showAndWait()
-            stage.close()
+            Platform.runLater {
+                Alert(Alert.AlertType.INFORMATION, "Пользователь успешно добавлен").showAndWait()
+                stage.close()
+            }
         }
 
         task.setOnFailed {
-            task.exception.printStackTrace()
-            stage.close()
+            Platform.runLater {
+                Alert(Alert.AlertType.ERROR, "Ошибка при сохранении: ${task.exception.message}").showAndWait()
+            }
         }
 
         Thread(task).start()
+    }
+
+    private fun validateData(): Boolean {
+        val errors = mutableListOf<String>()
+
+        // Проверка выбора роли
+        if (roleComboBox.value == null) {
+            errors.add("Не выбрана роль пользователя")
+        }
+
+        // Проверка текстовых полей на пустоту
+        if (lastnameTextField.text.isBlank()) {
+            errors.add("Фамилия не может быть пустой")
+        }
+        if (firstnameTextField.text.isBlank()) {
+            errors.add("Имя не может быть пустым")
+        }
+        if (surnameTextField.text.isBlank()) {
+            errors.add("Отчество не может быть пустым")
+        }
+        if (emailTextField.text.isBlank()) {
+            errors.add("Email не может быть пустым")
+        } else {
+            // Проверка формата email (простая проверка)
+            val email = emailTextField.text.trim()
+            if (!isValidEmail(email)) {
+                errors.add("Введён некорректный email (должен содержать @ и домен)")
+            }
+        }
+
+        if (errors.isNotEmpty()) {
+            showErrors(errors)
+            return false
+        }
+
+        return true
+    }
+
+    private fun isValidEmail(email: String): Boolean {
+        return email.contains("@") && email.contains(".") && email.indexOf("@") < email.lastIndexOf(".") - 1
+    }
+
+    private fun showErrors(errors: List<String>) {
+        val message = errors.joinToString("\n• ", "• ")
+        Alert(Alert.AlertType.ERROR, message).showAndWait()
     }
 }

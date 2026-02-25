@@ -36,7 +36,10 @@ class User (
     var surname: String,
 
     @Column(name = "email")
-    var email: String
+    var email: String,
+
+    @Column(name = "password")
+    var password: String
 ) {
     // Эти методы JavaFX будет использовать для связки с таблицей.
     // Аннотация @Transient говорит Hibernate игнорировать эти функции.

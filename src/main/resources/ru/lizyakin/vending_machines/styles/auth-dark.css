@@ -1,0 +1,77 @@
+* {
+    -fx-color-primary: #8A2BE2;               /* Фиолетовый */
+    -fx-color-primary-hover: #9B4DFF;          /* Ярче при наведении */
+    -fx-bg-app: #1E1F22;                        /* Фон окна */
+    -fx-bg-card: #2A2C2F;                        /* Фон полей ввода */
+    -fx-text-main: #E6E6E6;                      /* Основной текст */
+    -fx-text-muted: #8E9297;                      /* Подсказки / muted */
+    -fx-border: #3A3C3F;                          /* Границы */
+    -fx-hover-bg: #3D3F42;                        /* Для будущих расширений */
+    -fx-pressed-bg: #4A4C4F;                      /* Для состояний нажатия */
+}
+
+/* Корневой контейнер VBox – центрирование и фон */
+VBox {
+    -fx-background-color: -fx-bg-app;
+    -fx-spacing: 20px;                           /* Расстояние между элементами */
+    -fx-padding: 80px 40px;                       /* Вертикальные и горизонтальные отступы */
+    -fx-alignment: CENTER;                        /* Выравнивание по центру */
+}
+
+/* Заголовок формы */
+.header-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: 700;
+    -fx-text-fill: -fx-text-main;
+    -fx-padding: 0 0 20 0;                        /* Дополнительный отступ снизу */
+}
+
+/* Поля ввода (email и пароль) */
+.email-tf, .password-pf {
+    -fx-pref-width: 250px;                         /* Фиксированная ширина */
+    -fx-max-width: 250px;
+    -fx-min-height: 40px;
+    -fx-background-color: -fx-bg-card;
+    -fx-border-color: -fx-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 10 14;
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-text-main;
+    -fx-prompt-text-fill: -fx-text-muted;          /* Цвет placeholder'а */
+}
+
+.email-tf:focused, .password-pf:focused {
+    -fx-border-color: -fx-color-primary;           /* Фиолетовая обводка при фокусе */
+}
+
+.email-tf:hover, .password-pf:hover {
+    -fx-border-color: #6A6E73;                     /* Светло-серая обводка при наведении */
+}
+
+/* Кнопка подтверждения */
+.confirm-bttn {
+    -fx-background-color: -fx-bg-card;        /* Темный фон, как у полей */
+    -fx-text-fill: -fx-text-main;              /* Светлый текст */
+    -fx-border-color: -fx-border;               /* Серая граница, как у полей */
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 10 20;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-cursor: hand;
+    -fx-pref-width: 250px;
+    -fx-max-width: 250px;
+    -fx-min-height: 40px;
+}
+
+.confirm-bttn:hover {
+    -fx-border-color: -fx-color-primary;       /* Фиолетовая обводка при наведении */
+    -fx-background-color: derive(-fx-bg-card, 10%); /* Можно чуть осветлить фон (по желанию) */
+}
+
+.confirm-bttn:pressed {
+    -fx-background-color: #6A1E9A;                 /* Тёмно-фиолетовый при нажатии */
+}

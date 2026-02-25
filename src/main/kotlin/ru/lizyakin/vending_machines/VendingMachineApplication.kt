@@ -7,8 +7,10 @@ import javafx.stage.Stage
 
 class VendingMachineApplication : Application() {
     override fun start(stage: Stage) {
-        val fxmlLoader = FXMLLoader(VendingMachineApplication::class.java.getResource("layout-view.fxml"))
+        val fxmlLoader = FXMLLoader(VendingMachineApplication::class.java.getResource("auth-view.fxml"))
         val scene = Scene(fxmlLoader.load(), 1200.0, 800.0)
+        stage.minWidth = 1200.0
+        stage.minHeight = 800.0
         stage.title = "Торговые автоматы"
         stage.scene = scene
         stage.show()

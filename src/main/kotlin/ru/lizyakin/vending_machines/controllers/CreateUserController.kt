@@ -52,7 +52,8 @@ class CreateUserController {
             lastname = lastnameTextField.text,
             firstname = firstnameTextField.text,
             surname = surnameTextField.text,
-            email = emailTextField.text
+            email = emailTextField.text,
+            password = ""
         )
 
         val task = object : Task<Unit>() {

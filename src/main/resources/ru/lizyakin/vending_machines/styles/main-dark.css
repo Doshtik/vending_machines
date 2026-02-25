@@ -3,8 +3,8 @@
     -fx-font-size: 14px;
 
     /* Основная цветовая палитра (тёмная) */
-    -fx-vk-blue: #0077FF;
-    -fx-vk-blue-hover: #3399FF;          /* Более яркий синий для наведения */
+    -fx-color-primary: #8A2BE2;               /* Фиолетовый */
+    -fx-color-primary-hover: #9B4DFF;          /* Более яркий синий для наведения */
     -fx-bg-app: #1E1F22;                 /* Фон приложения (тёмно-серый) */
     -fx-bg-card: #2A2C2F;                 /* Фон карточек и панелей (чуть светлее) */
     -fx-text-main: #E6E6E6;               /* Основной текст (светло-серый) */
@@ -24,9 +24,11 @@
     -fx-scrollbar-thumb-hover: #6A6E73;       /* Ползунок при наведении */
 }
 
-/* ========================================
-   Сайдбар
-   ======================================== */
+/*
+========================================
+ Сайдбар
+========================================
+*/
 .sidebar {
     -fx-background-color: -fx-bg-card;
     -fx-border-color: -fx-border;
@@ -57,9 +59,11 @@
     -fx-spacing: 4px;
 }
 
-/* ========================================
-   Кнопки навигации
-   ======================================== */
+/*
+========================================
+ Кнопки навигации
+========================================
+*/
 .nav-button,
 .nav-menu {
     -fx-background-color: transparent;
@@ -75,12 +79,10 @@
     -fx-max-width: Infinity;
 }
 
-/* Явно задаём цвет текста для Label внутри MenuButton */
 .nav-menu .label {
     -fx-text-fill: -fx-text-main;
 }
 
-/* Цвет стрелки раскрывающегося списка */
 .nav-menu .arrow-button .arrow {
     -fx-background-color: -fx-text-main;
 }
@@ -88,15 +90,15 @@
 .nav-button:hover,
 .nav-menu:hover {
     -fx-background-color: -fx-hover-bg;
-    -fx-text-fill: -fx-vk-blue;
+    -fx-text-fill: -fx-color-primary;
 }
 
 .nav-menu:hover .label {
-    -fx-text-fill: -fx-vk-blue;              /* Чтобы текст при ховере тоже синел */
+    -fx-text-fill: -fx-color-primary;              /* Чтобы текст при ховере тоже синел */
 }
 
 .nav-menu:hover .arrow-button .arrow {
-    -fx-background-color: -fx-vk-blue;       /* И стрелка синеет */
+    -fx-background-color: -fx-color-primary;       /* И стрелка синеет */
 }
 
 .nav-button:pressed,
@@ -106,7 +108,7 @@
 
 .nav-button.active {
     -fx-background-color: -fx-active-bg;
-    -fx-text-fill: -fx-vk-blue;
+    -fx-text-fill: -fx-color-primary;
     -fx-font-weight: 500;
 }
 
@@ -118,7 +120,7 @@
     -fx-border-radius: 12px;
     -fx-padding: 6px;
     -fx-effect: dropshadow(gaussian, -fx-shadow, 20, 0, 0, 4);
-    -fx-min-width: 230px;                     /* Ширина равна ширине кнопки */
+    -fx-min-width: 230px;                       /* Ширина равна ширине кнопки */
 }
 
 .nav-menu .menu-item {
@@ -137,9 +139,11 @@
     -fx-text-fill: -fx-text-main;
 }
 
-/* ========================================
-   Основная область
-   ======================================== */
+/*
+========================================
+ Основная область
+========================================
+*/
 .main-content {
     -fx-background-color: -fx-bg-app;
     -fx-padding: 0;
@@ -173,9 +177,11 @@
     -fx-spacing: 16px;
 }
 
-/* ========================================
-   Карточки
-   ======================================== */
+/*
+========================================
+ Карточки
+========================================
+*/
 .card {
     -fx-background-color: -fx-bg-card;
     -fx-background-radius: 12px;
@@ -192,9 +198,11 @@
     -fx-padding: 0 0 16 0;
 }
 
-/* ========================================
-   Поля ввода
-   ======================================== */
+/*
+========================================
+ Поля ввода
+========================================
+*/
 .text-field,
 .combo-box,
 .date-picker {
@@ -213,7 +221,7 @@
 .text-field:focused,
 .combo-box:focused,
 .date-picker:focused {
-    -fx-border-color: -fx-vk-blue;
+    -fx-border-color: -fx-color-primary;
 }
 
 .text-field:hover,
@@ -222,11 +230,13 @@
     -fx-border-color: #6A6E73;               /* Светло-серый при наведении */
 }
 
-/* ========================================
-   Кнопки действий
-   ======================================== */
+/*
+========================================
+ Кнопки действий
+========================================
+*/
 .button-primary {
-    -fx-background-color: -fx-vk-blue;
+    -fx-background-color: -fx-color-primary;
     -fx-text-fill: WHITE;
     -fx-font-size: 14px;
     -fx-font-weight: 500;
@@ -238,7 +248,7 @@
 }
 
 .button-primary:hover {
-    -fx-background-color: -fx-vk-blue-hover;
+    -fx-background-color: -fx-color-primary-hover;
 }
 
 .button-primary:pressed {
@@ -252,8 +262,8 @@
 
 .button-secondary {
     -fx-background-color: transparent;
-    -fx-text-fill: -fx-vk-blue;
-    -fx-border-color: -fx-vk-blue;
+    -fx-text-fill: -fx-color-primary;
+    -fx-border-color: -fx-color-primary;
     -fx-border-width: 1px;
     -fx-font-size: 14px;
     -fx-font-weight: 500;
@@ -268,9 +278,11 @@
     -fx-background-color: #1A3347;            /* Тёмно-синий фон */
 }
 
-/* ========================================
-   Таблицы
-   ======================================== */
+/*
+========================================
+ Таблицы
+========================================
+*/
 .table-view {
     -fx-background-color: -fx-bg-card;
     -fx-border-color: -fx-border;
@@ -313,9 +325,11 @@
     -fx-text-fill: -fx-text-main;
 }
 
-/* ========================================
-   Скроллбары
-   ======================================== */
+/*
+========================================
+ Скроллбары
+========================================
+*/
 .scroll-bar:vertical .thumb,
 .scroll-bar:horizontal .thumb {
     -fx-background-color: -fx-scrollbar-thumb;
@@ -327,9 +341,11 @@
     -fx-background-color: -fx-scrollbar-thumb-hover;
 }
 
-/* ========================================
-   Утилиты
-   ======================================== */
+/*
+========================================
+ Утилиты
+========================================
+*/
 .separator-line {
     -fx-background-color: -fx-border;
     -fx-padding: 1px 0;

@@ -8,15 +8,14 @@ import javafx.scene.SubScene
 import javafx.scene.layout.StackPane
 import ru.lizyakin.vending_machines.VendingMachineApplication
 import javafx.scene.control.Label
+import javafx.scene.control.MenuButton
+import javafx.stage.Stage
 
 class LayoutController {
     private var currentRoot: Parent? = null
-
-    @FXML
-    lateinit var mainBody: StackPane
-
-    @FXML
-    lateinit var navSectionName: Label
+    @FXML lateinit var adminMenuButton: MenuButton
+    @FXML lateinit var mainBody: StackPane
+    @FXML lateinit var navSectionName: Label
 
     @FXML
     fun initialize() {
@@ -30,6 +29,14 @@ class LayoutController {
         currentRoot = view
         mainBody.children.setAll(view)
         navSectionName.text = sectionName
+    }
+
+    @FXML
+    fun navToAuth() {
+        val stage = navSectionName.scene.window as Stage
+        val loader = FXMLLoader(VendingMachineApplication::class.java.getResource("auth-view.fxml"))
+        val newRoot: Parent = loader.load()
+        stage.scene.root = newRoot
     }
 
     @FXML

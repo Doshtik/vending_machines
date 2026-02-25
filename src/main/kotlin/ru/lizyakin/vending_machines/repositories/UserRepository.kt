@@ -28,6 +28,12 @@ object UserRepository {
 
     fun findById(id: Int): User? = execute { it.get(User::class.java, id) }
 
+    fun findByEmail(email: String): User? = execute { session ->
+        session.createQuery("FROM User WHERE email = :email", User::class.java)
+            .setParameter("email", email)
+            .uniqueResult()
+    }
+
     fun save(user: User) = execute { it.persist(user) }
 
     fun update(user: User) = execute { it.merge(user) }

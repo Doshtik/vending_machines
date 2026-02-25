@@ -1,14 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.layout.StackPane?>
 <VBox xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ru.lizyakin.vending_machines.controllers.MainMonitorVMController"
-            prefHeight="400.0" prefWidth="600.0">
-    <Label text="Монитор ТА"/>
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ru.lizyakin.vending_machines.controllers.MainMonitorVMController">
+    <VBox styleClass="header">
+        <HBox>
+            <Label text="Монитор торговых автоматов"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button onAction="#showCardsView">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/grid.svg" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button onAction="#showTableView">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/list.svg" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </HBox>
+        <HBox>
+            <VBox>
+                <Label text="Общее состояние" />
+                <HBox>
+                    <Button>
+                        <graphic>
+                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@/icons/1-square.svg" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button>
+                        <graphic>
+                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@/icons/2-square.svg" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button>
+                        <graphic>
+                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@/icons/3-square.svg" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </HBox>
+            </VBox>
+            <VBox>
+                <Label text="Экспорт" />
+                <HBox>
+                    <Button text="Экспорт в .csv" onAction="#exportToCSV" />
+                    <Button text="Экспорт в .pdf" onAction="#exportToPDF" />
+                </HBox>
+            </VBox>
+        </HBox>
+    </VBox>
+    <StackPane fx:id="contentArea" styleClass="content-body">
+
+    </StackPane>
 </VBox>

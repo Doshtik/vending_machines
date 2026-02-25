@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-
 <VBox styleClass="form-container"
       stylesheets="styles/forms.css"
       xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="ru.lizyakin.vending_machines.controllers.CreateUserController"
-      prefHeight="400.0" prefWidth="600.0">
+      fx:controller="ru.lizyakin.vending_machines.controllers.CreateUserController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -48,8 +43,9 @@
             <Label styleClass="form-label" text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
             <TextField styleClass="form-input" fx:id="emailTextField" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-            <Label styleClass="form-label" text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+            <Label styleClass="form-label" text="Пароль:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
             <TextField styleClass="form-input" fx:id="passwordTextField" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
         </children>
     </GridPane>
 

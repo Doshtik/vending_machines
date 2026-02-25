@@ -20,7 +20,7 @@ import javafx.beans.value.ObservableValue
 class User (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Int?,
+    var id: Int? = null,
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_role")

@@ -13,10 +13,7 @@ import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import javafx.stage.Stage
 import ru.lizyakin.vending_machines.models.User
-import ru.lizyakin.vending_machines.models.VendingMachine
 import ru.lizyakin.vending_machines.repositories.UserRepository
-import ru.lizyakin.vending_machines.repositories.VMRepository
-import java.util.Date
 
 class AdminUserController {
     @FXML private lateinit var tableView: TableView<User>
@@ -68,11 +65,10 @@ class AdminUserController {
     }
 
     @FXML
-    public fun onCreateUser() {
+    fun onCreateUser() {
         try {
             // Укажи путь к FXML от корня resources
-            val fxmlLocation = javaClass.getResource("/ru/lizyakin/vending_machines/create-user-view.fxml")
-            val loader = FXMLLoader(fxmlLocation)
+            val loader = FXMLLoader(javaClass.getResource("/ru/lizyakin/vending_machines/create-user-view.fxml"))
             val root = loader.load<Parent>()
 
             val stage = Stage()
@@ -81,6 +77,7 @@ class AdminUserController {
             stage.minHeight = 800.0
             stage.title = "Добавление пользователя"
             stage.showAndWait()
+            loadData()
         } catch (e: Exception) {
             e.printStackTrace()
         } finally {
@@ -89,7 +86,7 @@ class AdminUserController {
     }
 
     @FXML
-    public fun onUpdateUser() {
+    fun onUpdateUser() {
         if (selectedUser == null) {
             val alert: Alert = Alert(Alert.AlertType.WARNING, "Пользователь не выбран")
             alert.showAndWait()
@@ -109,7 +106,6 @@ class AdminUserController {
         stage.minHeight = 800.0
         stage.title = "Редактирование " + selectedUser.lastname + " " + selectedUser.firstname
         stage.showAndWait()
-
         loadData()
     }
 

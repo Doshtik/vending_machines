@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<VBox prefHeight="700.0" prefWidth="650.0"
-      styleClass="form-container"
-      stylesheets="@styles/forms.css"
+<VBox stylesheets="@styles/forms.css"
       xmlns="http://javafx.com/javafx/17.0.12"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="ru.lizyakin.vending_machines.controllers.CreateVMController">
 
-    <GridPane hgap="20.0" vgap="12.0" styleClass="form-body">
+    <GridPane hgap="15.0" vgap="10.0" styleClass="form-body">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="180.0" prefWidth="220.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" prefWidth="220.0" />
             <ColumnConstraints hgrow="ALWAYS" minWidth="250.0" />
         </columnConstraints>
+
+        <rowConstraints>
+            <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
 
         <children>
             <Label text="Название модели:" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="0" />
@@ -63,11 +63,13 @@
 
             <Label text="Адрес:" styleClass="form-label" GridPane.rowIndex="6" GridPane.columnIndex="2" />
             <TextField fx:id="addressTextField" styleClass="form-input" GridPane.rowIndex="6" GridPane.columnIndex="3" />
+
+            <HBox alignment="CENTER_RIGHT" spacing="15.0"
+                  GridPane.rowIndex="7" GridPane.columnIndex="0"
+                  GridPane.columnSpan="4">
+                <Button text="Сохранить" styleClass="form-button" onAction="#onConfirm"/>
+            </HBox>
         </children>
     </GridPane>
-
-    <HBox alignment="CENTER_RIGHT" spacing="15.0" styleClass="form-footer">
-        <Button text="Сохранить" styleClass="form-button" onAction="#onConfirm"/>
-    </HBox>
 </VBox>
 

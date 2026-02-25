@@ -21,7 +21,7 @@ import java.util.Date
 class VendingMachine (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Int?,
+    var id: Int? = null,
 
     @Column(name = "inventory_id")
     var inventoryId: Int?,

@@ -13,7 +13,7 @@ import javafx.beans.property.StringProperty
 import javafx.beans.value.ObservableValue
 
 @Entity
-@Table(name = "manufacturers")
+@Table(name = "manufactureres")
 class Manufacturer (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -21,10 +21,6 @@
             <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
         </columnConstraints>
 
-        <rowConstraints>
-            <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-
         <children>
             <!-- Основная информация -->
             <Label text="Название модели:" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="0" />

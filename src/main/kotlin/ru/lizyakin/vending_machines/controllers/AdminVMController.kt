@@ -76,7 +76,7 @@ class AdminVMController {
             val stage = Stage()
             stage.scene = Scene(root)
             stage.minWidth = 1200.0
-            stage.minHeight = 800.0
+            stage.minHeight = 700.0
             stage.title = "Добавление торгового автомата"
             stage.showAndWait()
         } catch (e: Exception) {
@@ -103,7 +103,7 @@ class AdminVMController {
         val stage = Stage()
         stage.scene = Scene(root)
         stage.minWidth = 1200.0
-        stage.minHeight = 800.0
+        stage.minHeight = 700.0
         stage.title = "Редактирование " + selectedVendingMachine.modelName
         stage.showAndWait()
 

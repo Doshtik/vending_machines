@@ -72,8 +72,8 @@ class AdminUserController {
 
             val stage = Stage()
             stage.scene = Scene(root)
-            stage.minWidth = 1200.0
-            stage.minHeight = 800.0
+            stage.minWidth = 800.0
+            stage.minHeight = 400.0
             stage.title = "Добавление пользователя"
             stage.showAndWait()
             loadData()
@@ -100,8 +100,8 @@ class AdminUserController {
 
         val stage = Stage()
         stage.scene = Scene(root)
-        stage.minWidth = 1200.0
-        stage.minHeight = 800.0
+        stage.minWidth = 800.0
+        stage.minHeight = 400.0
         stage.title = "Редактирование " + selectedUser.lastname + " " + selectedUser.firstname
         stage.showAndWait()
         loadData()

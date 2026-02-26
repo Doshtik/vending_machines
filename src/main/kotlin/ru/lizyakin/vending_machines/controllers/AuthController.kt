@@ -39,7 +39,7 @@ class AuthController {
                 val loader = FXMLLoader(VendingMachineApplication::class.java.getResource("layout-view.fxml"))
                 val newRoot: Parent = loader.load()
                 val controller: LayoutController = loader.getController()
-                controller.adminMenuButton.text = user.lastname + "." + user.firstname.get(0) + "." + user.surname.get(0)
+                controller.adminMenuButton.text = user.lastname + " " + user.firstname.get(0) + "." + user.surname.get(0)
                 stage.scene.root = newRoot
             }
             else {

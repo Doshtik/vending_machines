@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <VBox styleClass="form-container"
-      stylesheets="styles/forms.css"
+      stylesheets="@styles/forms.css"
       xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="ru.lizyakin.vending_machines.controllers.CreateUserController">
@@ -20,6 +20,7 @@
 
         <rowConstraints>
             <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints />
             <RowConstraints />
             <RowConstraints />
             <RowConstraints />
@@ -46,10 +47,9 @@
             <Label styleClass="form-label" text="Пароль:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
             <TextField styleClass="form-input" fx:id="passwordTextField" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
+            <HBox alignment="CENTER_RIGHT" spacing="10.0" styleClass="form-footer" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                <Button defaultButton="true" text="Сохранить" styleClass="form-button" onAction="#onConfirm" />
+            </HBox>
         </children>
     </GridPane>
-
-    <HBox alignment="CENTER_RIGHT" spacing="10.0" styleClass="form-footer">
-        <Button defaultButton="true" text="Сохранить" styleClass="form-button" onAction="#onConfirm" />
-    </HBox>
 </VBox>

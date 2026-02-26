@@ -2,10 +2,14 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 <VBox stylesheets="@styles/forms.css"
       xmlns="http://javafx.com/javafx/17.0.12"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="ru.lizyakin.vending_machines.controllers.CreateVMController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
 
     <GridPane hgap="15.0" vgap="10.0" styleClass="form-body">
         <columnConstraints>
@@ -64,9 +68,7 @@
             <Label text="Адрес:" styleClass="form-label" GridPane.rowIndex="6" GridPane.columnIndex="2" />
             <TextField fx:id="addressTextField" styleClass="form-input" GridPane.rowIndex="6" GridPane.columnIndex="3" />
 
-            <HBox alignment="CENTER_RIGHT" spacing="15.0"
-                  GridPane.rowIndex="7" GridPane.columnIndex="0"
-                  GridPane.columnSpan="4">
+            <HBox alignment="CENTER_RIGHT" spacing="15.0" GridPane.rowIndex="7" GridPane.columnIndex="0" GridPane.columnSpan="4">
                 <Button text="Сохранить" styleClass="form-button" onAction="#onConfirm"/>
             </HBox>
         </children>

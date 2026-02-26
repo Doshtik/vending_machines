@@ -37,6 +37,7 @@ class UpdateUserController {
         firstnameTextField.text = user.firstname
         surnameTextField.text = user.surname
         emailTextField.text = user.email
+        passwordTextField.text = user.password
     }
 
     fun initialize() {

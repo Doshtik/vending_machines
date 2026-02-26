@@ -72,7 +72,7 @@
             </VBox>
             <VBox>
                 <Label styleClass="export-label" text="Экспорт" />
-                <HBox>
+                <HBox spacing="10">
                     <Button styleClass="export-excel-btn" text="Экспорт в .csv" onAction="#exportToCSV" />
                     <Button styleClass="export-pdf-btn" text="Экспорт в .pdf" onAction="#exportToPDF" />
                 </HBox>

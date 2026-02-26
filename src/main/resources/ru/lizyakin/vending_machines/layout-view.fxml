@@ -127,6 +127,11 @@
     <!-- Основная область -->
     <VBox fx:id="mainContent" HBox.hgrow="ALWAYS" styleClass="main-content">
         <HBox fx:id="mainHeader" alignment="CENTER_LEFT" styleClass="content-header">
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@/images/vending-machine.png"/>
+                </image>
+            </ImageView>
             <Label fx:id="companyName" text="ООО Торговые Автоматы" styleClass="company-label" />
             <Region HBox.hgrow="ALWAYS" />
             <Label fx:id="navSectionName" styleClass="section-title" />

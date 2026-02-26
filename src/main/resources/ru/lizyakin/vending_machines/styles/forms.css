@@ -23,7 +23,6 @@
     -fx-padding: 25px 30px;
     -fx-hgap: 20px;
     -fx-vgap: 15px;
-    -fx-effect: dropshadow(gaussian, -fx-shadow, 10, 0, 0, 2);
 }
 
 .form-label {

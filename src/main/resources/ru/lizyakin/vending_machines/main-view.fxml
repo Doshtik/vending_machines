@@ -1,16 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <VBox xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ru.lizyakin.vending_machines.controllers.MainController"
-            prefHeight="400.0" prefWidth="600.0">
-    <GridPane>
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ru.lizyakin.vending_machines.controllers.MainController"
+      stylesheets="@styles/main.css">
+    <GridPane styleClass="grid-pane">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="250.0" prefWidth="250.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="250.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="150.0" />
+        </columnConstraints>
 
+        <rowConstraints>
+            <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints />
+        </rowConstraints>
+
+        <VBox styleClass="card-body" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <StackPane styleClass="card-header">
+                <Label fx:id="networkPerformanceLabel" text="Эффективность сети" styleClass="network-performance" />
+            </StackPane>
+        </VBox>
+
+        <VBox styleClass="card-body" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <StackPane styleClass="card-header">
+                <Label fx:id="networkStateLabel" text="Состояние сети" styleClass="network-state" />
+            </StackPane>
+        </VBox>
+
+
+        <VBox styleClass="card-body" GridPane.columnIndex="2" GridPane.rowIndex="0">
+            <StackPane styleClass="card-header">
+                <Label fx:id="summaryLabel" text="Сводка" styleClass="summary-label" />
+            </StackPane>
+        </VBox>
+
+        <VBox styleClass="card-body" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="2">
+            <StackPane styleClass="card-header">
+                <Label fx:id="dynamicLabel" text="Динамика продаж за последние 10 дней" styleClass="dynamic-label" />
+            </StackPane>
+        </VBox>
+
+        <VBox styleClass="card-body" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <StackPane styleClass="card-header">
+                <Label fx:id="newsLabel" text="Новости" styleClass="news-label" />
+            </StackPane>
+        </VBox>
     </GridPane>
 </VBox>

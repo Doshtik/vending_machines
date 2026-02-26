@@ -110,7 +110,6 @@
     -fx-background-color: -fx-bg-card;
     -fx-border-color: -fx-border;
     -fx-padding: 6px;
-    -fx-effect: dropshadow(gaussian, -fx-shadow, 20, 0, 0, 4);
     -fx-min-width: 230px;
 
     /* Скругление можно убрать, раскомментировав строки ниже */
@@ -197,7 +196,6 @@
     -fx-border-color: -fx-border;
     -fx-border-radius: 12px;
     -fx-padding: 6px;
-    -fx-effect: dropshadow(gaussian, -fx-shadow, 20, 0, 0, 4);
     -fx-min-width: 230px;                       /* Ширина равна ширине кнопки */
 }
 
@@ -266,7 +264,6 @@
     -fx-border-radius: 12px;
     -fx-border-color: -fx-border;
     -fx-padding: 20;
-    -fx-effect: dropshadow(gaussian, -fx-shadow, 10, 0, 0, 2);
 }
 
 .card-title {

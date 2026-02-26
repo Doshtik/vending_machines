@@ -1,0 +1,151 @@
+* {
+    -fx-bg-app: #1E1F22;
+    -fx-bg-card: #2A2C2F;
+    -fx-border: #3A3C3F;
+    -fx-text-main: #E6E6E6;
+    -fx-text-muted: #8E9297;
+    -fx-color-primary: #8A2BE2;
+    -fx-color-primary-hover: #9B4DFF;
+    -fx-color-success: #33B471;
+    -fx-color-success-hover: #4EC489;
+    -fx-color-danger: #FF3B30;
+    -fx-color-danger-hover: #FF5E56;
+    -fx-color-warning: #FF9E00;
+    -fx-color-warning-hover: #FFB533;
+    -fx-shadow: rgba(0, 0, 0, 0.4);
+    -fx-hover-bg: #3D3F42;
+}
+
+/* Корневой контейнер (добавьте styleClass="root" к VBox в FXML) */
+.root {
+    -fx-background-color: -fx-bg-app;
+    -fx-font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* ========== Шапка ========== */
+.header {
+    -fx-background-color: -fx-bg-card;
+    -fx-border-color: -fx-border;
+    -fx-border-width: 0;
+    -fx-background-radius: 12px; /* скругление только сверху */
+    -fx-padding: 0;
+}
+
+/* Верхняя строка (заголовок + кнопки вида) */
+.header-level-1 {
+    -fx-padding: 16px 24px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-spacing: 10px;
+}
+
+.header-label {
+    -fx-font-size: 20px;
+    -fx-font-weight: 600;
+    -fx-text-fill: -fx-text-main;
+}
+
+/* Кнопки переключения вида (карточки / таблица) */
+.cardview-btn, .tableview-btn {
+    -fx-background-color: transparent;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-padding: 8px;
+    -fx-cursor: hand;
+    -fx-min-width: 36px;
+    -fx-min-height: 36px;
+}
+
+.cardview-btn:hover, .tableview-btn:hover {
+    -fx-background-color: -fx-hover-bg;
+}
+
+/* Нижняя строка (навигация и экспорт) */
+.header-nav {
+    -fx-padding: 12px 24px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-spacing: 30px;
+    -fx-border-color: -fx-border;
+    -fx-border-width: 1px 0 0 0;
+}
+
+/* Метки «Общее состояние» и «Экспорт» */
+.nav-label, .export-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-text-fill: -fx-text-muted;
+    -fx-padding: 0 0 5px 0;
+    -fx-uppercase: true;  /* Преобразование в верхний регистр (требует JavaFX 12+) */
+}
+
+/* Контейнер для кнопок состояний */
+.nav-state {
+    -fx-spacing: 8px;
+}
+
+/* ========== Кнопки состояний (с иконками) ========== */
+.state-working-btn, .state-broken-btn, .state-repairing-btn {
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-padding: 6px;
+    -fx-cursor: hand;
+    -fx-min-width: 32px;
+    -fx-min-height: 32px;
+    -fx-border-width: 1px;
+}
+
+.state-working-btn {
+    -fx-background-color: rgba(51, 180, 113, 0.2);
+    -fx-border-color: -fx-color-success;
+}
+
+.state-working-btn:hover {
+    -fx-background-color: rgba(51, 180, 113, 0.3);
+}
+
+.state-broken-btn {
+    -fx-background-color: rgba(255, 59, 48, 0.2);
+    -fx-border-color: -fx-color-danger;
+}
+
+.state-broken-btn:hover {
+    -fx-background-color: rgba(255, 59, 48, 0.3);
+}
+
+.state-repairing-btn {
+    -fx-background-color: rgba(255, 158, 0, 0.2);
+    -fx-border-color: -fx-color-warning;
+}
+
+.state-repairing-btn:hover {
+    -fx-background-color: rgba(255, 158, 0, 0.3);
+}
+
+/* ========== Кнопки экспорта ========== */
+.export-excel-btn, .export-pdf-btn {
+    -fx-background-color: transparent;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-border-color: -fx-border;
+    -fx-border-width: 1px;
+    -fx-text-fill: -fx-text-main;
+    -fx-font-size: 13px;
+    -fx-padding: 8px 16px;
+    -fx-cursor: hand;
+    -fx-min-height: 36px;
+}
+
+.export-excel-btn:hover, .export-pdf-btn:hover {
+    -fx-background-color: -fx-bg-app;
+    -fx-border-color: -fx-color-primary;
+}
+
+.export-excel-btn:pressed, .export-pdf-btn:pressed {
+    -fx-background-color: -fx-hover-bg;
+}
+
+/* ========== Область контента (карточки / таблица) ========== */
+.content-body {
+    -fx-background-color: -fx-bg-app;
+    -fx-padding: 20px;
+}

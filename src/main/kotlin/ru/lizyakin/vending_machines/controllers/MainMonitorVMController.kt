@@ -20,7 +20,6 @@ class MainMonitorVMController {
 
     fun initialize() {
         vmList = VMRepository.findAll()
-        showTableView()
     }
 
     @FXML

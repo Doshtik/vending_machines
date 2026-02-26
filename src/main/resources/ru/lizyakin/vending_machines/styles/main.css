@@ -1,0 +1,95 @@
+* {
+    -fx-bg-app: #1E1F22;
+    -fx-bg-card: #2A2C2F;
+    -fx-border: #3A3C3F;
+    -fx-text-main: #E6E6E6;
+    -fx-text-muted: #8E9297;
+    -fx-color-primary: #8A2BE2;
+    -fx-color-primary-hover: #9B4DFF;
+    -fx-shadow: rgba(0, 0, 0, 0.4);
+    -fx-hover-bg: #3D3F42;
+}
+
+/* Корневой контейнер (добавьте styleClass="root" к VBox в FXML) */
+.root {
+    -fx-background-color: -fx-bg-app;
+    -fx-font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+    -fx-font-size: 14px;
+    -fx-padding: 20px;
+}
+
+/* Сетка GridPane — добавляем отступы между карточками */
+.grid-pane {
+    -fx-hgap: 20px;
+    -fx-vgap: 20px;
+    -fx-padding: 0;
+}
+
+/* Карточка */
+.card-body {
+    -fx-background-color: -fx-bg-card;
+    -fx-background-radius: 16px;
+    -fx-border-radius: 16px;
+    -fx-border-color: -fx-border;
+    -fx-border-width: 1px;
+    -fx-padding: 0; /* отступы задаются внутри через header и content */
+    -fx-min-height: 200px;
+    -fx-max-height: Infinity;
+}
+
+/* Шапка карточки */
+.card-header {
+    -fx-background-color: rgba(58, 60, 63, 0.3); /* полупрозрачный фон */
+    -fx-background-radius: 16px 16px 0 0;
+    -fx-border-color: transparent transparent -fx-border transparent;
+    -fx-border-width: 0 0 1px 0;
+    -fx-padding: 16px 20px;
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* Стили для меток внутри карточек (названия) */
+.network-performance, .network-state, .summary-label,
+.dynamic-label, .news-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-text-fill: -fx-text-muted;
+    -fx-wrap-text: true;
+}
+
+/* Специфичные для разных меток (можно добавить иконки или цвета) */
+.network-performance {
+    -fx-text-fill: -fx-color-primary; /* фиолетовый */
+}
+
+.network-state {
+    -fx-text-fill: #33B471; /* зелёный */
+}
+
+.summary-label {
+    -fx-text-fill: #FF9E00; /* оранжевый */
+}
+
+.dynamic-label {
+    -fx-text-fill: #0078D7; /* синий */
+}
+
+.news-label {
+    -fx-text-fill: #FF3B30; /* красный */
+}
+
+/* Область контента внутри карточки (можно добавить позже) */
+.card-content {
+    -fx-padding: 20px;
+    -fx-alignment: TOP_CENTER;
+    -fx-spacing: 10px;
+}
+
+/* Адаптация для маленьких экранов (если нужно) */
+@media (max-width: 800px) {
+    .card-body {
+        -fx-min-height: 150px;
+    }
+    .card-header {
+        -fx-padding: 12px 16px;
+    }
+}

@@ -11,12 +11,14 @@
 <?import javafx.scene.layout.StackPane?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="ru.lizyakin.vending_machines.controllers.MainMonitorVMController">
+      stylesheets="@styles/monitor.css"
+      fx:controller="ru.lizyakin.vending_machines.controllers.MainMonitorVMController"
+    spacing="10">
     <VBox styleClass="header">
-        <HBox>
-            <Label text="Монитор торговых автоматов"/>
+        <HBox styleClass="header-level-1">
+            <Label styleClass="header-label" text="Монитор торговых автоматов"/>
             <Region HBox.hgrow="ALWAYS" />
-            <Button onAction="#showCardsView">
+            <Button styleClass="cardview-btn" onAction="#showCardsView">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -25,7 +27,7 @@
                     </ImageView>
                 </graphic>
             </Button>
-            <Button onAction="#showTableView">
+            <Button styleClass="tableview-btn" onAction="#showTableView">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -35,11 +37,11 @@
                 </graphic>
             </Button>
         </HBox>
-        <HBox>
+        <HBox styleClass="header-nav">
             <VBox>
-                <Label text="Общее состояние" />
-                <HBox>
-                    <Button>
+                <Label styleClass="nav-label" text="Общее состояние" />
+                <HBox styleClass="nav-state">
+                    <Button styleClass="state-working-btn">
                         <graphic>
                             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
@@ -48,7 +50,7 @@
                             </ImageView>
                         </graphic>
                     </Button>
-                    <Button>
+                    <Button styleClass="state-broken-btn">
                         <graphic>
                             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
@@ -57,7 +59,7 @@
                             </ImageView>
                         </graphic>
                     </Button>
-                    <Button>
+                    <Button styleClass="state-repairing-btn">
                         <graphic>
                             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
@@ -69,10 +71,10 @@
                 </HBox>
             </VBox>
             <VBox>
-                <Label text="Экспорт" />
+                <Label styleClass="export-label" text="Экспорт" />
                 <HBox>
-                    <Button text="Экспорт в .csv" onAction="#exportToCSV" />
-                    <Button text="Экспорт в .pdf" onAction="#exportToPDF" />
+                    <Button styleClass="export-excel-btn" text="Экспорт в .csv" onAction="#exportToCSV" />
+                    <Button styleClass="export-pdf-btn" text="Экспорт в .pdf" onAction="#exportToPDF" />
                 </HBox>
             </VBox>
         </HBox>

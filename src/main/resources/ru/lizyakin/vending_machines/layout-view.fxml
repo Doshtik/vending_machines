@@ -15,7 +15,7 @@
 <?import javafx.scene.SubScene?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<HBox stylesheets="@styles/main-dark.css" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+<HBox stylesheets="@styles/layout-dark.css" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
       fx:controller="ru.lizyakin.vending_machines.controllers.LayoutController" prefWidth="1200" prefHeight="600">
     <!-- Сайдбар -->
     <VBox fx:id="sidebar" prefWidth="250.0" styleClass="sidebar">

@@ -14,8 +14,8 @@ module ru.lizyakin.vending_machines {
     // PostgreSQL
     requires org.postgresql.jdbc;
 
-    // Разрешаем Hibernate доступ к сущностям (замени путь на свой пакет с Entity)
-    opens ru.lizyakin.vending_machines.models.entites to org.hibernate.orm.core;
+    // Разрешаем Hibernate доступ к сущностям
+    opens ru.lizyakin.vending_machines.models to org.hibernate.orm.core;
     // Разрешаем JavaFX доступ к контроллерам
     opens ru.lizyakin.vending_machines to javafx.fxml;
     exports ru.lizyakin.vending_machines;
